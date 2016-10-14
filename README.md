@@ -5,11 +5,12 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 5.0
 
 * System dependencies
 
 * Configuration
+`rake bower:install`
 
 * Database creation
 
