@@ -12,20 +12,20 @@
                     controller: 'HomeController as vm'
                 })
                 .state('home.list', {
-                    url: '/list',
+                    url: 'list',
                     templateUrl: 'list/list.html',
                     controller: 'ListController as vm'
                 })
                 .state('home.quiz', {
-                    url: '/quiz',
+                    url: 'quiz',
                     templateUrl: 'quiz/quiz.html',
                     controller: 'QuizController as vm'
                 })
                 .state('home.results', {
-                    url: '/results',
+                    url: 'results',
                     templateUrl: 'results/results.html',
                     controller: 'ResultsController as vm'
                 });
-            $urlRouterProvider.otherwise('/')
+
         });
 }());
