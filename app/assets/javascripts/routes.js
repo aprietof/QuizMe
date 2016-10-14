@@ -26,6 +26,6 @@
                     templateUrl: 'results/results.html',
                     controller: 'ResultsController as vm'
                 });
-
+            $urlRouterProvider.otherwise('/')
         });
 }());
