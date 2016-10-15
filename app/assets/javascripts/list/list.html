@@ -1,3 +1,56 @@
-<div class="container">
-  <h1>List</h1>
+<h1>List</h1>
+
+<div class="row">
+  <div class="col-sm-6" ng-repeat="card in vm.data">
+
+    <div class="well well-sm"><!-- card -->
+      <div class="row">
+        <div class="col-md-6">
+          <img ng-src="{{card.image_url}}" class="img-rounded img-responsive well-img" />
+        </div>
+        <div class="col-md-6">
+          <h4>{{card.type}}</h4>
+          <p><strong>Location: </strong>{{card.locations}}</p>
+          <p><strong>Size: </strong>{{card.size}}</p>
+          <p><strong>Diet: </strong>{{card.diet}}</p>
+            <!-- <a href="#" ui-sref="card({id: $index})" ui-sref-active="active">Learn More</a> -->
+            <button type="button" class="btn btn-primary pull-right"
+            data-toggle="modal"
+            data-target="#card-info"
+            ng-click="vm.changeActiveCard(card)">Learn More</button>
+        </div>
+      </div>
+    </div> <!-- end card -->
+
+    <div class="modal" id="card-info"> <!-- Modal -->
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h2>{{vm.activeCard.type}}</h2>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-8 col-xs-offset-2">
+                <img ng-src="{{vm.activeCard.image_url}}" class="img-rounded img-responsive" />
+              </div>
+            </div>
+            <div class="row top-buffer">
+              <div class="col-md-6">
+                <p><strong>Location: </strong>{{vm.activeCard.locations}}</p>
+                <p><strong>Size: </strong>{{vm.activeCard.size}}</p>
+                <p><strong>Diet: </strong>{{vm.activeCard.diet}}</p>
+              </div>
+              <div class="col-xs-12 top-buffer">
+                <p class="description">{{vm.activeCard.description}}</p>
+                <button type="button"
+                        class="btn btn-danger pull-right"
+                        data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> <!-- end Modal -->
+
+  </div>
 </div>
