@@ -5,7 +5,11 @@
     function QuizController(QuizFactory) {
         var vm = this;
 
-        vm.guy = QuizFactory.name;
+        getQuestions();
+
+        function getQuestions() {
+            return vm.questions = QuizFactory.quizQuestions()
+        }
 
     }
 
