@@ -11,10 +11,10 @@
                     templateUrl: 'home/home.html',
                     controller: 'HomeController as vm'
                 })
-                .state('home.list', {
-                    url: 'list',
-                    templateUrl: 'list/list.html',
-                    controller: 'ListController as vm'
+                .state('home.cards', {
+                    url: 'cards',
+                    templateUrl: 'cards/cards.html',
+                    controller: 'CardsController as vm'
                 })
                 .state('home.quiz', {
                     url: 'quiz',

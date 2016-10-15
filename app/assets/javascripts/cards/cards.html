@@ -1,0 +1,20 @@
+<h1>List</h1>
+
+<!-- ****** Navbar ****** -->
+
+<div ng-include="'cards/_navbar.html'">
+</div>
+<!-- End of Navbar -->
+
+
+<!-- ****** List of Cards ****** -->
+
+<div class="row">
+    <!-- Filter by card type -->
+    <div class="col-sm-6" ng-repeat="card in vm.cardsData | filter: {type: vm.search}">
+        <div ng-include="'cards/_card.html'">
+            <!-- Card Partial Here -->
+        </div>
+    </div>
+</div>
+<!-- End of List of Cards -->
