@@ -1,4 +1,7 @@
-<div class="well well-sm"><!-- card -->
+
+<!-- ****** Card ****** -->
+
+<div class="well well-sm">
   <div class="row">
     <div class="col-md-6">
       <img ng-src="{{card.image_url}}" class="img-rounded img-responsive well-img" />
@@ -10,14 +13,18 @@
       <p><strong>Diet: </strong>{{card.diet}}</p>
         <!-- <a href="#" ui-sref="card({id: $index})" ui-sref-active="active">Learn More</a> -->
         <button type="button" class="btn btn-primary pull-right"
-        data-toggle="modal"
-        data-target="#card-info"
-        ng-click="vm.changeActiveCard(card)">Learn More</button>
+                data-toggle="modal"
+                data-target="#card-info"
+                ng-click="vm.changeActiveCard(card)">
+                Learn More
+        </button>
     </div>
   </div>
 </div> <!-- end card -->
 
-<div class="modal" id="card-info"> <!-- Modal -->
+<!-- ****** Modal ****** -->
+
+<div class="modal" id="card-info">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -39,7 +46,9 @@
             <p class="description">{{vm.activeCard.description}}</p>
             <button type="button"
                     class="btn btn-danger pull-right"
-                    data-dismiss="modal">Close</button>
+                    data-dismiss="modal">
+                    Close
+            </button>
           </div>
         </div>
       </div>
