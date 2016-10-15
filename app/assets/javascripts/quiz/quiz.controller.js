@@ -2,9 +2,10 @@
 
     'use strict'
 
-    function QuizController() {
+    function QuizController(QuizFactory) {
         var vm = this;
 
+        vm.guy = QuizFactory.name;
 
     }
 
