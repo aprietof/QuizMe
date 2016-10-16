@@ -17,3 +17,10 @@
 //= require angular-ui-router
 //= require angular-rails-templates
 //= require_tree .
+
+$(document).ready(function() {
+    $(".btn").click(function(event) {
+        // Removes focus of the button.
+        $(this).blur();
+    });
+});
