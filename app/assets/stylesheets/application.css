@@ -28,6 +28,19 @@
   text-align: justify;
 }
 
+.answer {
+  padding: 15px 20px;
+  border-radius: 10px;
+  border: 1px solid #bbb;
+}
+
+.answer:hover {
+  cursor: pointer;
+  -webkit-box-shadow: 6px 10px 58px -15px rgba(0,0,0,0.21);
+  -moz-box-shadow: 6px 10px 58px -15px rgba(0,0,0,0.21);
+  box-shadow: 6px 10px 58px -15px rgba(0,0,0,0.21);
+}
+
 /* enable absolute positioning */
 .inner-addon {
   position: relative;
