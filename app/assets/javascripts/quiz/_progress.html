@@ -5,11 +5,11 @@
     <div class="col-xs-8">
         <h4>Progress</h4>
         <div class="btn-toolbar">
-            <button class="btn" ng-repeat="question in vm.questions" ng-class="{'btn-info': question.selected !== null, 'btn-danger': question.selected === null}">
+            <button class="btn" ng-repeat="question in vm.questions" ng-class="{'btn-info': question.answered !== null, 'btn-danger': question.answered === null}">
         <span class="glyphicon"
             ng-class="{
-              'glyphicon-pencil': question.selected !== null,
-              'glyphicon-question-sign': question.selected === null
+              'glyphicon-pencil': question.answered !== null,
+              'glyphicon-question-sign': question.answered === null
             }">
         </span>
       </button>

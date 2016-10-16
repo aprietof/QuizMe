@@ -2,27 +2,24 @@
 
     'use strict'
 
+    QuizController.$inject = ['QuizFactory']
+
     function QuizController(QuizFactory) {
         var vm = this;
         var numQuestionsAnswered = 0
 
-        // instatiated Functions
-        getQuestions();
-
         // vm Variables
+        vm.questions = QuizFactory.quizQuestions()
         vm.activeQuestionIndex = 0;
-        vm.activeQuestion = vm.questions[vm.activeQuestionIndex]
+        vm.activeQuestion = vm.questions[0]
 
         // Callable Methods
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
 
-        // Defined Methods
+        // instatiated Functions
 
-        function getQuestions() {
-            // Asigns an array of questions to vm.questions
-            return vm.questions = QuizFactory.quizQuestions()
-        }
+        // Defined Methods
 
         function setActiveQuestion() {
             var breakOut = false;
@@ -33,8 +30,10 @@
                 // Check if activeQuestion is less than length of quizz
                 // increment by 1 if it is, reset to first question if is not
                 vm.activeQuestionIndex = vm.activeQuestionIndex < quizLengthIndexed ? ++vm.activeQuestionIndex : 0;
-                if (vm.activeQuestion.selected === null) {
-                    // Unanswered question found
+                // Update Active Question
+                vm.activeQuestion = vm.questions[vm.activeQuestionIndex]
+                    // if find Unanswered question stop
+                if (vm.activeQuestion.answered === null) {
                     breakOut = true;
                 }
             }
@@ -44,7 +43,7 @@
             var quizLength = vm.questions.length
 
             // if current question is answered move onto the next
-            if (vm.activeQuestion.selected !== null) {
+            if (vm.activeQuestion.answered !== null) {
                 numQuestionsAnswered++
                 // Check if all questions have been answered
                 if (numQuestionsAnswered >= quizLength) {
