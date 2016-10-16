@@ -18,8 +18,10 @@
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
+        vm.switchQuestion = switchQuestion;
 
         // instatiated Functions
+
 
         // Defined Methods
 
@@ -58,6 +60,13 @@
         function selectAnswer(index) {
             // Assigns index value as answered value of active question
             vm.activeQuestion.answered = index;
+        }
+
+        function switchQuestion(index) {
+            // Reassigns index question based on clicked icon index
+            vm.activeQuestionIndex = index
+                // Update Active Question
+            vm.activeQuestion = vm.questions[vm.activeQuestionIndex]
         }
 
     }
