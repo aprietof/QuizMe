@@ -1,6 +1,18 @@
 <div class="row">
+
+  <!-- ****** Error Alert ****** -->
+  <div class="alert alert-danger" ng-show="vm.error">
+    You have not answered all questions!
+    <button class="close" ng-click="vm.error = false">&times</button>
+  </div>
+  <!-- End Error Alert -->
+
   <h3>Question:</h3>
+
+  <!-- ****** Question Box ****** -->
   <div class="well well-sm">
+
+    <!-- ****** Answers ****** -->
     <div class="row">
       <div class="col-xs-12">
         <h4>{{vm.activeQuestionIndex + 1 + ". " + vm.activeQuestion.text}}</h4>
@@ -15,6 +27,17 @@
         </div>
       </div>
     </div>
+    <!-- End Answers -->
+
+    <!-- ****** Continue Button ****** -->
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="button" class="btn btn-warning pull-right" ng-click="vm.questionAnswered()">Continue</button>
+      </div>
+    </div>
+    <!-- End Continue Button -->
+
   </div>
-  <button type="button" class="btn btn-warning" ng-click="vm.questionAnswered()">Continue</button>
+  <!-- End Question Box -->
+
 </div>
