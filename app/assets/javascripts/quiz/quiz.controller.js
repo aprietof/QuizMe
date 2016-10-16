@@ -5,6 +5,7 @@
     QuizController.$inject = ['QuizFactory']
 
     function QuizController(QuizFactory) {
+
         var vm = this;
         var numQuestionsAnswered = 0
 
@@ -16,6 +17,7 @@
         // Callable Methods
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
+        vm.selectAnswer = selectAnswer;
 
         // instatiated Functions
 
@@ -32,7 +34,7 @@
                 vm.activeQuestionIndex = vm.activeQuestionIndex < quizLengthIndexed ? ++vm.activeQuestionIndex : 0;
                 // Update Active Question
                 vm.activeQuestion = vm.questions[vm.activeQuestionIndex]
-                    // if find Unanswered question stop
+                    // Stop if active question is unanswered
                 if (vm.activeQuestion.answered === null) {
                     breakOut = true;
                 }
@@ -51,6 +53,11 @@
                 }
             }
             vm.setActiveQuestion()
+        }
+
+        function selectAnswer(index) {
+            // Assigns index value as answered value of active question
+            vm.activeQuestion.answered = index;
         }
 
     }

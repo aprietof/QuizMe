@@ -6,7 +6,11 @@
         <h4>{{vm.activeQuestionIndex + 1 + ". " + vm.activeQuestion.text}}</h4>
         <div class="row">
           <div class="col-sm-6" ng-repeat="posibility in vm.activeQuestion.possibilities">
-            <h4 class="answer">{{posibility.answer}}</h4>
+            <h4 class="answer"
+                ng-class="{'answer-info': $index === vm.activeQuestion.answered}"
+                ng-click="vm.selectAnswer($index)">
+                {{posibility.answer}}
+            </h4>
           </div>
         </div>
       </div>
