@@ -10,7 +10,7 @@
   <h3>Question:</h3>
 
   <!-- ****** Question Box ****** -->
-  <div class="well well-sm">
+  <div class="well well-sm" ng-hide="vm.finalize">
 
     <!-- ****** Answers ****** -->
     <div class="row">
@@ -39,5 +39,17 @@
 
   </div>
   <!-- End Question Box -->
+
+  <!-- ****** Continue User Prompt ****** -->
+  <div class="well well-sm" ng-show="vm.finalize">
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Are you sure you want to submit your answers?</h3>
+        <button class="btn btn-success" ng-click="vm.finalizeAnswers()" href="#" ui-sref="home.results">Yes</button>
+        <button class="btn btn-danger" ng-click="vm.finalize = false">No</button>
+      </div>
+    </div>
+  </div>
+  <!-- End Continue User Prompt -->
 
 </div>

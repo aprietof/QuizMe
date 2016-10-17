@@ -7,20 +7,21 @@
     function QuizController(QuizFactory) {
 
         var vm = this;
-        var numQuestionsAnswered = 0
+        var numQuestionsAnswered = QuizFactory.numQuestionsAnswered // 0
 
         // vm Variables
         vm.questions = QuizFactory.quizQuestions()
-        vm.activeQuestionIndex = 0;
+        vm.activeQuestionIndex = QuizFactory.activeQuestionIndex;
         vm.activeQuestion = vm.questions[0]
         vm.error = false
-        vm.finalize = false
+        vm.finalize = QuizFactory.finalize // false
 
         // Callable Methods
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
         vm.switchQuestion = switchQuestion;
+        vm.finalizeAnswers = finalizeAnswers;
 
         // instatiated Functions
 
@@ -28,8 +29,10 @@
         // Defined Methods
 
         function setActiveQuestion() {
+
             var breakOut = false;
             var quizLengthIndexed = vm.questions.length - 1;
+
             // Loop through questions until all answered
             while (!breakOut) {
                 // Check if activeQuestion is less than length of quizz
@@ -41,7 +44,7 @@
                 }
                 // Update Active Question
                 vm.activeQuestion = vm.questions[vm.activeQuestionIndex];
-                // Stop if active question is unanswered
+                // Stop looping if active question is unanswered
                 if (vm.activeQuestion.answered === null) {
                     breakOut = true;
                 }
@@ -50,8 +53,7 @@
 
         function questionAnswered() {
             var quizLength = vm.questions.length
-
-            // if current question is answered move onto the next
+                // if current question is answered move onto the next
             if (vm.activeQuestion.answered !== null) {
                 numQuestionsAnswered++
                 // Check if all questions have been answered
@@ -82,6 +84,11 @@
             vm.activeQuestionIndex = index;
             // Update Active Question
             vm.activeQuestion = vm.questions[vm.activeQuestionIndex]
+        }
+
+        function finalizeAnswers() {
+            QuizFactory.resetVariables()
+            QuizFactory.answeredQuestions = vm.questions
         }
 
     }

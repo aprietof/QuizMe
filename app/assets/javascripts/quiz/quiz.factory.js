@@ -4,7 +4,12 @@
 
     function QuizFactory() {
         return {
-            quizQuestions: quizQuestions
+            quizQuestions: quizQuestions,
+            finalize: false,
+            numQuestionsAnswered: 0,
+            activeQuestionIndex: 0,
+            resetVariables: resetVariables,
+            answeredQuestions: []
         }
 
         function quizQuestions() {
@@ -21,7 +26,8 @@
                     answer: "Up to 500kg"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 1
             }, {
                 type: "text",
                 text: "What is the typical lifespan of a Green Sea Turtle?",
@@ -35,7 +41,8 @@
                     answer: "40 years"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 2
             }, {
                 type: "image",
                 text: "Which of these is the Alligator Snapping Turtle?",
@@ -49,7 +56,8 @@
                     answer: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Alligator_snapping_turtle_-_Geierschildkr%C3%B6te_-_Alligatorschildkr%C3%B6te_-_Macrochelys_temminckii_01.jpg"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 3
             }, {
                 type: "image",
                 text: "Which of these is the Green Turtle?",
@@ -63,7 +71,8 @@
                     answer: "http://assets.worldwildlife.org/photos/163/images/carousel_small/SCR_290360hawskbill-why-matter-LG.jpg?1345565532"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 0
             }, {
                 type: "text",
                 text: "Where does the Kemp's Ridley Sea Turtle live?'",
@@ -77,7 +86,8 @@
                     answer: "South pacific islands"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 2
             }, {
                 type: "text",
                 text: "What is the most common turtle in US waters?",
@@ -91,7 +101,8 @@
                     answer: "Alligator Snapping Turtle"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 0
             }, {
                 type: "text",
                 text: "What is the largest sea turtle on earth?",
@@ -105,7 +116,8 @@
                     answer: "Leatherback"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 3
             }, {
                 type: "image",
                 text: "Which of these is the Olive Ridley Turtle?",
@@ -119,7 +131,8 @@
                     answer: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Kemp's_Ridley_sea_turtle_nesting.JPG"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 2
             }, {
                 type: "text",
                 text: "How Heavy can a leatherback turtle be?",
@@ -133,7 +146,8 @@
                     answer: "300kg"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 0
             }, {
                 type: "text",
                 text: "Which of these turtles are herbivores?",
@@ -147,10 +161,16 @@
                     answer: "Green Turtle"
                 }],
                 answered: null,
-                correct: null
+                correct: null,
+                answer: 3
             }]
         }
 
+        function resetVariables() {
+            QuizFactory.finalize = false
+            QuizFactory.numQuestionsAnswered = 0
+            QuizFactory.activeQuestionIndex = 0
+        }
     }
 
     angular
