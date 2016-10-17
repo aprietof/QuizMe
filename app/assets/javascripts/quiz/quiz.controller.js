@@ -10,11 +10,11 @@
         var numQuestionsAnswered = QuizFactory.numQuestionsAnswered // 0
 
         // vm Variables
-        vm.questions = QuizFactory.quizQuestions()
-        vm.activeQuestionIndex = QuizFactory.activeQuestionIndex;
-        vm.activeQuestion = vm.questions[0]
+        vm.questions = QuizFactory.quizQuestions() // -> Gets all questions from factory
+        vm.activeQuestionIndex = QuizFactory.activeQuestionIndex; // -> 0
+        vm.activeQuestion = vm.questions[vm.activeQuestionIndex] // -> First
         vm.error = false
-        vm.finalize = QuizFactory.finalize // false
+        vm.finalize = QuizFactory.finalize // -> false
 
         // Callable Methods
         vm.questionAnswered = questionAnswered;
@@ -67,7 +67,8 @@
                         }
                     }
                     vm.error = false;
-                    vm.finalize = true;
+                    // Set quiz finalize state to true
+                    vm.finalize = true
                     return
                 }
             }
@@ -87,7 +88,8 @@
         }
 
         function finalizeAnswers() {
-            QuizFactory.resetVariables()
+            // QuizFactory.resetVariables()
+            QuizFactory.finalize = true;
             QuizFactory.answeredQuestions = vm.questions
         }
 
