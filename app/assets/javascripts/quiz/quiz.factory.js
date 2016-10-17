@@ -26,7 +26,7 @@
                     answer: "Up to 500kg"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 1
             }, {
                 type: "text",
@@ -41,7 +41,7 @@
                     answer: "40 years"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 2
             }, {
                 type: "image",
@@ -56,7 +56,7 @@
                     answer: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Alligator_snapping_turtle_-_Geierschildkr%C3%B6te_-_Alligatorschildkr%C3%B6te_-_Macrochelys_temminckii_01.jpg"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 3
             }, {
                 type: "image",
@@ -71,7 +71,7 @@
                     answer: "http://assets.worldwildlife.org/photos/163/images/carousel_small/SCR_290360hawskbill-why-matter-LG.jpg?1345565532"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 0
             }, {
                 type: "text",
@@ -86,7 +86,7 @@
                     answer: "South pacific islands"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 2
             }, {
                 type: "text",
@@ -101,7 +101,7 @@
                     answer: "Alligator Snapping Turtle"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 0
             }, {
                 type: "text",
@@ -116,7 +116,7 @@
                     answer: "Leatherback"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 3
             }, {
                 type: "image",
@@ -131,7 +131,7 @@
                     answer: "https://upload.wikimedia.org/wikipedia/commons/7/7f/Kemp's_Ridley_sea_turtle_nesting.JPG"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 2
             }, {
                 type: "text",
@@ -146,7 +146,7 @@
                     answer: "300kg"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 0
             }, {
                 type: "text",
@@ -161,7 +161,7 @@
                     answer: "Green Turtle"
                 }],
                 answered: null,
-                correct: null,
+                correct: false,
                 answer: 3
             }]
         }
