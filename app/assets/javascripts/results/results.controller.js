@@ -11,9 +11,11 @@
         // vm Variables
         vm.answeredQuestions = QuizFactory.answeredQuestions
         vm.correctAnswers = 0
+        vm.activeResults = QuizFactory.finalize // true
 
         // Callable Methods
         vm.checkResults = checkResults;
+        vm.setActiveQuestion = setActiveQuestion;
 
         // instatiated Functions
         checkResults()
@@ -26,7 +28,10 @@
                     vm.correctAnswers++;
                 }
             }
-            return vm.answeredQuestions
+        }
+
+        function setActiveQuestion(index) {
+
         }
 
 
