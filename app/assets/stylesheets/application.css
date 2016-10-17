@@ -28,17 +28,7 @@
   text-align: justify;
 }
 
-.answer {
-  padding: 15px 20px;
-  border: 1px solid #bbb;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  border-radius: 4px;
-}
-
-.answer:hover {
-  cursor: pointer;
-}
+/* ###### Search Box ###### */
 
 /* enable absolute positioning */
 .inner-addon {
@@ -60,10 +50,37 @@
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
 
+
+/* ###### Answers ###### */
+
+.answer {
+  padding: 15px 20px;
+  border: 1px solid #bbb;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  border: 1px solid #bbb;
+}
+
+.answer:hover {
+  cursor: pointer;
+}
+
 .answer-info {
   color: #3a87ad;
   background-color: #d9edf7;
   border-color: #bce8f1;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
-  border: 1px solid #bbb;
+}
+
+.answer-danger {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+.answer-success {
+  color: #468847;
+  background-color: #dff0d8;
+  border-color: #d6e9c6;
 }
