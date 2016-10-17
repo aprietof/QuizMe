@@ -19,6 +19,7 @@
         vm.checkResults = checkResults;
         vm.setActiveQuestion = setActiveQuestion;
         vm.getAnswerClass = getAnswerClass;
+        vm.score = score;
 
         // instatiated Functions
         checkResults()
@@ -51,6 +52,11 @@
                 // if answer incorrect return class name 'answer-success'
                 return "answer-success"
             }
+        }
+
+        function score() {
+            // Returns score based on correct answers as a float
+            return ((vm.correctAnswers / vm.answeredQuestions.length) * 100)
         }
 
     }

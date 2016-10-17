@@ -1,5 +1,14 @@
+<!-- ****** Stats ****** -->
 <div class="row">
-  <h2>Correct Answers: {{vm.correctAnswers}}</h2>
+  <div class="col-sx-12">
+    <h2>Correct Answers: {{vm.correctAnswers}} / {{vm.answeredQuestions.length}}</h2>
+    <h2>Your Score is {{ vm.score() | number:2 }}% </h2>
+  </div>
+</div>
+<!-- End Stats -->
+
+<!-- ****** Top Status Bar ****** -->
+<div class="row">
   <div class="col-xs-8">
     <h2>Results</h2>
     <div class="btn-toolbar">
@@ -37,3 +46,4 @@
     </div>
   </div>
 </div>
+<!-- End Top Status Bar -->
