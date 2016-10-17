@@ -23,7 +23,7 @@
         // instatiated Functions
         checkResults()
 
-        // Defined Methods
+        // ################### Defined Methods ################### //
 
         function checkResults() {
             // Loop through questions and check for correct answers
@@ -38,17 +38,20 @@
         }
 
         function setActiveQuestion(index) {
-
+            // Update active question according to button index
+            vm.activeQuestion = vm.answeredQuestions[index]
         }
 
         function getAnswerClass(index) {
+            // Assign class acording to answer
             if (index !== vm.activeQuestion.answer && index === vm.activeQuestion.answered) {
+                // if answer incorrect return class name 'answer-danger'
                 return "answer-danger"
             } else if (index === vm.activeQuestion.answer) {
+                // if answer incorrect return class name 'answer-success'
                 return "answer-success"
             }
         }
-
 
     }
 
