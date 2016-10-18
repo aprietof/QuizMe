@@ -20,6 +20,7 @@
         vm.setActiveQuestion = setActiveQuestion;
         vm.getAnswerClass = getAnswerClass;
         vm.score = score;
+        vm.endQuiz = endQuiz
 
         // instatiated Functions
         checkResults()
@@ -57,6 +58,10 @@
         function score() {
             // Returns score based on correct answers as a float
             return ((vm.correctAnswers / vm.answeredQuestions.length) * 100)
+        }
+
+        function endQuiz() {
+            QuizFactory.finalize = false;
         }
 
     }

@@ -28,6 +28,10 @@
   text-align: justify;
 }
 
+.btn-inside {
+  margin-left: 10px;
+}
+
 /* ###### Search Box ###### */
 
 /* enable absolute positioning */
