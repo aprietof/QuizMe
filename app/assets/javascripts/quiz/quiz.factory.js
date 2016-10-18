@@ -8,7 +8,6 @@
             finalize: false,
             numQuestionsAnswered: 0,
             activeQuestionIndex: 0,
-            resetVariables: resetVariables,
             answeredQuestions: []
         }
 
@@ -26,6 +25,7 @@
                     answer: "Up to 500kg"
                 }],
                 answered: null,
+                selected: false,
                 correct: false,
                 answer: 1
             }, {
@@ -41,6 +41,7 @@
                     answer: "40 years"
                 }],
                 answered: null,
+                selected: false,
                 correct: false,
                 answer: 2
             }, {
@@ -56,6 +57,7 @@
                     answer: "South pacific islands"
                 }],
                 answered: null,
+                selected: false,
                 correct: false,
                 answer: 2
             }, {
@@ -71,6 +73,7 @@
                     answer: "Alligator Snapping Turtle"
                 }],
                 answered: null,
+                selected: false,
                 correct: false,
                 answer: 0
             }, {
@@ -86,6 +89,7 @@
                     answer: "Leatherback"
                 }],
                 answered: null,
+                selected: false,
                 correct: false,
                 answer: 3
             }, {
@@ -101,16 +105,12 @@
                     answer: "Green Turtle"
                 }],
                 answered: null,
+                selected: false,
                 correct: false,
                 answer: 3
             }];
         }
 
-        function resetVariables() {
-            QuizFactory.finalize = false
-            QuizFactory.numQuestionsAnswered = 0
-            QuizFactory.activeQuestionIndex = 0
-        }
     }
 
     angular

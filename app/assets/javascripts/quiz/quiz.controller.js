@@ -16,6 +16,7 @@
         vm.error = false
         vm.finalize = QuizFactory.finalize // -> false
 
+
         // Callable Methods
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
@@ -25,8 +26,7 @@
 
         // instatiated Functions
 
-
-        // Defined Methods
+        // ################### Defined Methods ################### //
 
         function setActiveQuestion() {
 
@@ -52,25 +52,22 @@
         }
 
         function questionAnswered() {
+
             var quizLength = vm.questions.length
-                // if current question is answered move onto the next
-            if (vm.activeQuestion.answered !== null) {
-                numQuestionsAnswered++
-                // Check if all questions have been answered
-                if (numQuestionsAnswered >= quizLength) {
-                    // Finalize Quiz
-                    for (var i = 0; i < quizLength.length; i++) {
-                        // if there is a question unanswered send to that question
-                        if (vm.questions[i].answered === null) {
-                            switchQuestion(i);
-                            return;
-                        }
+
+            // Check if all questions have been answered
+            if (numQuestionsAnswered >= quizLength) {
+                for (var i = 0; i < quizLength.length; i++) {
+                    // if there is an unanswered question switch to that question
+                    if (vm.questions[i].answered === null) {
+                        switchQuestion(i);
+                        return;
                     }
-                    vm.error = false;
-                    // Set quiz finalize state to true
-                    vm.finalize = true
-                    return
                 }
+                vm.error = false;
+                // Set quiz finalize state to true
+                vm.finalize = true
+                return
             }
             setActiveQuestion()
         }
@@ -78,6 +75,12 @@
         function selectAnswer(index) {
             // Assigns index value as answered value of active question
             vm.activeQuestion.answered = index;
+            // Increment answered questions and set selected value to true
+            // if active question is unanswered and not previously selected
+            if (vm.activeQuestion.answered !== null && !vm.activeQuestion.selected) {
+                numQuestionsAnswered++
+                vm.activeQuestion.selected = true;
+            }
         }
 
         function switchQuestion(index) {
@@ -88,10 +91,12 @@
         }
 
         function finalizeAnswers() {
-            // QuizFactory.resetVariables()
+            // Broadcast all questions have been submited to factory
             QuizFactory.finalize = true;
+            // Update quiz questions with user answers
             QuizFactory.answeredQuestions = vm.questions
         }
+
 
     }
 
