@@ -1,12 +1,3 @@
-<!-- ****** Stats ****** -->
-<div class="row">
-  <div class="col-sx-12">
-    <h2>Correct Answers: {{vm.correctAnswers}} / {{vm.answeredQuestions.length}}</h2>
-    <h2>Your Score is {{ vm.score() | number:2 }}% </h2>
-  </div>
-</div>
-<!-- End Stats -->
-
 <!-- ****** Top Status Bar ****** -->
 <div class="row">
   <div class="col-xs-8">
@@ -28,22 +19,24 @@
       </button>
     </div>
   </div>
+
+  <!-- ****** Stats ****** -->
   <div class="col-xs-4">
-    <div class="row">
-      <h4>Legend</h4>
-      <div class="col-sm-4">
-        <button class="btn btn-success">
-          <span class="glyphicon glyphicon-ok"></span>
-        </button>
-        <p>Correct</p>
-      </div>
-      <div class="col-sm-4">
-        <button class="btn btn-danger">
-          <span class="glyphicon glyphicon-remove"></span>
-        </button>
-        <p>Incorrect</p>
-      </div>
-    </div>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <span class="badge badge-success">{{vm.correctAnswers}}</span>
+        Correct
+      </li>
+      <li class="list-group-item">
+        <span class="badge badge-danger">{{vm.answeredQuestions.length - vm.correctAnswers}}</span>
+        Incorrect
+      </li>
+      <li class="list-group-item">
+        <span class="badge badge-info">{{ vm.score() | number:0 }}%</span>
+        <span class="glyphicon glyphicon-stats"></span> Score
+      </li>
+    </ul>
   </div>
+  <!-- End Stats -->
 </div>
 <!-- End Top Status Bar -->

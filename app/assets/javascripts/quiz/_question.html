@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row question">
 
   <!-- ****** Error Alert ****** -->
   <div class="alert alert-danger" ng-show="vm.error">
@@ -7,15 +7,16 @@
   </div>
   <!-- End Error Alert -->
 
-  <h3>Question:</h3>
+  <div ng-hide="vm.finalize">
+    <h3>Question:</h3>
 
-  <!-- ****** Question Box ****** -->
-  <div class="well well-sm" ng-hide="vm.finalize">
-
-    <!-- ****** Answers ****** -->
-    <div class="row">
-      <div class="col-xs-12">
+    <!-- ****** Question Box ****** -->
+    <div class="panel panel-info" >
+      <div class="panel-heading">
         <h4>{{vm.activeQuestionIndex + 1 + ". " + vm.activeQuestion.text}}</h4>
+      </div>
+      <!-- ****** Answers ****** -->
+      <div class="panel-body">
         <div class="row">
           <div class="col-sm-6" ng-repeat="posibility in vm.activeQuestion.possibilities">
             <h4 class="answer"
@@ -26,8 +27,9 @@
           </div>
         </div>
       </div>
+        <!-- End Answers -->
     </div>
-    <!-- End Answers -->
+    <!-- End Question Box -->
 
     <!-- ****** Continue Button ****** -->
     <div class="row">
@@ -36,19 +38,17 @@
       </div>
     </div>
     <!-- End Continue Button -->
-
   </div>
-  <!-- End Question Box -->
 
   <!-- ****** Continue User Prompt ****** -->
-  <div class="well well-sm" ng-show="vm.finalize">
-    <div class="row">
-      <div class="col-xs-12">
-        <h3>Are you sure you want to submit your answers?</h3>
-        <button class="btn btn-success" ng-click="vm.finalizeAnswers()" href="#" ui-sref="home.results">Yes</button>
-        <button class="btn btn-danger" ng-click="vm.finalize = false">No</button>
+  <div class="panel panel-default panel-question" ng-show="vm.finalize">
+      <div class="panel-body panel-prompt">
+        <div class="buttonHolder">
+          <h1>Are you sure you want to submit your answers?</h1>
+          <button class="btn btn-success" ng-click="vm.finalizeAnswers()" href="#" ui-sref="home.results">Yes, submit my answers</button>
+          <button class="btn btn-danger" ng-click="vm.finalize = false">No, take me back</button>
+        </div>
       </div>
-    </div>
   </div>
   <!-- End Continue User Prompt -->
 
