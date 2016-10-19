@@ -14,31 +14,15 @@
         function quizQuestions() {
             return [{
                 type: "text",
-                text: "How much can a loggerhead weigh?",
+                text: "Who said: Chandler does still think I'm pregnant. He hasn't asked me how I'm feeling or offered to carry my bags. I feel bad for the woman who ends up with him.?",
                 possibilities: [{
-                    answer: "Up to 20kg"
+                    answer: "Rachel"
                 }, {
-                    answer: "Up to 115kg"
+                    answer: "Monica"
                 }, {
-                    answer: "Up to 220kg"
+                    answer: "Phebe"
                 }, {
-                    answer: "Up to 500kg"
-                }],
-                answered: null,
-                selected: false,
-                correct: false,
-                answer: 1
-            }, {
-                type: "text",
-                text: "What is the typical lifespan of a Green Sea Turtle?",
-                possibilities: [{
-                    answer: "150 years"
-                }, {
-                    answer: "10 years"
-                }, {
-                    answer: "80 years"
-                }, {
-                    answer: "40 years"
+                    answer: "Janice"
                 }],
                 answered: null,
                 selected: false,
@@ -46,31 +30,15 @@
                 answer: 2
             }, {
                 type: "text",
-                text: "Where does the Kemp's Ridley Sea Turtle live?'",
+                text: "Who said: All right, look if you absolutely have to tell her the truth, at least wait until the timing's right. And that's what deathbeds are for.?",
                 possibilities: [{
-                    answer: "Tropical waters all around the world"
+                    answer: "Chandler"
                 }, {
-                    answer: "Eastern Australia"
+                    answer: "Joey"
                 }, {
-                    answer: "Coastal North Atlantic"
+                    answer: "Ross"
                 }, {
-                    answer: "South pacific islands"
-                }],
-                answered: null,
-                selected: false,
-                correct: false,
-                answer: 2
-            }, {
-                type: "text",
-                text: "What is the most common turtle in US waters?",
-                possibilities: [{
-                    answer: "Loggerhead turtle"
-                }, {
-                    answer: "Leatherback turtle"
-                }, {
-                    answer: "Hawksbill Turtle"
-                }, {
-                    answer: "Alligator Snapping Turtle"
+                    answer: "Gunther"
                 }],
                 answered: null,
                 selected: false,
@@ -78,15 +46,15 @@
                 answer: 0
             }, {
                 type: "text",
-                text: "What is the largest sea turtle on earth?",
+                text: "Who said: Oh, yeah, I'm a gym member. I try to go four times a week, but I've missed the last... Twelve hundred times.?",
                 possibilities: [{
-                    answer: "Eastern Snake Necked Turtle"
+                    answer: "Gunther"
                 }, {
-                    answer: "Olive Ridley Sea Turtle"
+                    answer: "Ross"
                 }, {
-                    answer: "Kemp's Ridley Sea Turtle'"
+                    answer: "Joey"
                 }, {
-                    answer: "Leatherback"
+                    answer: "Chandler"
                 }],
                 answered: null,
                 selected: false,
@@ -94,20 +62,52 @@
                 answer: 3
             }, {
                 type: "text",
-                text: "Which of these turtles are herbivores?",
+                text: "Who said: You know, we should probably ask the doctor if she even knows how to deliver a baby that's half human, half *pure evil*! ",
                 possibilities: [{
-                    answer: "Loggerhead Turtle"
+                    answer: "Frank Jr"
                 }, {
-                    answer: "Hawksbill Turtle"
+                    answer: "Ross"
                 }, {
-                    answer: "Leatherback Turtle"
+                    answer: "Chandler"
                 }, {
-                    answer: "Green Turtle"
+                    answer: "Joey"
                 }],
                 answered: null,
                 selected: false,
                 correct: false,
-                answer: 3
+                answer: 1
+            }, {
+                type: "text",
+                text: "Who said: Guys can fake it ? Unbelievable! The one thing that's ours!",
+                possibilities: [{
+                    answer: "Rachel"
+                }, {
+                    answer: "Janice"
+                }, {
+                    answer: "Monica"
+                }, {
+                    answer: "Phebe"
+                }],
+                answered: null,
+                selected: false,
+                correct: false,
+                answer: 2
+            }, {
+                type: "text",
+                text: "Monica: My motto is get out before they go down. Who responded: 'That is so not my motto.'?",
+                possibilities: [{
+                    answer: "Joey"
+                }, {
+                    answer: "Ross"
+                }, {
+                    answer: "Jack"
+                }, {
+                    answer: "Chandler"
+                }],
+                answered: null,
+                selected: false,
+                correct: false,
+                answer: 0
             }];
         }
 
