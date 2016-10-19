@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html ng-app="app">
   <head>
-    <title>Devquiz</title>
+    <title>QuizMe!</title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -9,8 +9,35 @@
   </head>
 
   <body>
-    <div class="container">
+    <div class="container main">
       <%= yield %>
     </div>
   </body>
+
+  <div class="container-fluid">
+    <!-- Footer -->
+    <footer class="footer-bs">
+      <div class="row">
+        <div class="col-md-4 footer-brand animated fadeInLeft">
+            <h2><span class="glyphicon glyphicon-headphones"></span> Adrian Prieto</h2>
+              <p>Suspendisse hendrerit tellus laoreet luctus pharetra. Aliquam porttitor vitae orci nec ultricies. Curabitur vehicula, libero eget faucibus faucibus, purus erat eleifend enim, porta pellentesque ex mi ut sem.</p>
+              <p>© 2016 Adrian Prieto, All rights reserved</p>
+          </div>
+        <div class="col-md-5 footer-nav animated fadeInUp">
+            <h4>About Me</h4>
+            <p>Simply dummy text of the printing and typesetting industry.simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+        <div class="col-md-3 footer-social animated fadeInDown">
+            <h4>Follow Me</h4>
+            <ul>
+                <li><a href="#">Twitter</a></li>
+                <li><a href="#">Github</a></li>
+                <li><a href="#">Linkedin</a></li>
+                <li><a href="#">Youtube</a></li>
+              </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
 </html>
