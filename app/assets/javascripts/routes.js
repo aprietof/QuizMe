@@ -16,6 +16,11 @@
                     templateUrl: 'cards/cards.html',
                     controller: 'CardsController as vm'
                 })
+                .state('home.quizzes', {
+                    url: 'quizzes',
+                    templateUrl: 'quiz/quizzes.html',
+                    controller: 'QuizController as vm'
+                })
                 .state('home.quiz', {
                     url: 'quiz',
                     templateUrl: 'quiz/quiz.html',
