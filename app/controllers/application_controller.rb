@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
 
     after_filter :set_csrf_cookie
-    respond to :json
+    respond_to :json
 
     # Allows cookies with csrf token to post delete update
     def set_csrf_cookie
