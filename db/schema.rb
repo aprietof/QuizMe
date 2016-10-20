@@ -14,7 +14,6 @@ ActiveRecord::Schema.define(version: 20161020153918) do
 
   create_table "possibilities", force: :cascade do |t|
     t.text     "answer"
-    t.integer  "quiz_id"
     t.integer  "question_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
@@ -23,12 +22,12 @@ ActiveRecord::Schema.define(version: 20161020153918) do
   create_table "questions", force: :cascade do |t|
     t.text     "text"
     t.integer  "answered"
-    t.boolean  "selected"
-    t.boolean  "correct"
+    t.boolean  "selected",   default: false
+    t.boolean  "correct",    default: false
     t.integer  "answer"
     t.integer  "quiz_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
   create_table "quizzes", force: :cascade do |t|
