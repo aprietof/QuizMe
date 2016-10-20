@@ -2,7 +2,7 @@ class QuizController < ApplicationController
 
     def index
         quizzes = Quiz.all
-        render json: quizzes
+        render json: quizzes, include: ['questions', 'questions.possibilities']
      end
 
     def create
@@ -16,7 +16,7 @@ class QuizController < ApplicationController
 
     def show
         quiz = Quiz.find(params[:id])
-        render json: quiz
+        render json: quiz, include: ['questions', 'questions.possibilities']
     end
 
     def update
