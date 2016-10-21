@@ -2,13 +2,31 @@
 
     'use strict'
 
-    function QuizFactory() {
+    function QuizFactory($http) {
         return {
+            getQuizzes: getQuizzes,
             quizQuestions: quizQuestions,
             finalize: false,
             numQuestionsAnswered: 0,
             activeQuestionIndex: 0,
             answeredQuestions: []
+        }
+
+        function getQuizzes() {
+            return $http.get('/quizzes')
+                .then(handleResponse)
+                .catch(handleError)
+        }
+
+        // Handle $http responses
+
+        function handleResponse(response) {
+            console.log(response)
+            return response.data
+        }
+
+        function handleError(error) {
+            console.log(error);
         }
 
         function quizQuestions() {

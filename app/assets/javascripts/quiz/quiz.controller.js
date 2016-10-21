@@ -18,6 +18,7 @@
 
 
         // Callable Methods
+        vm.getQuizzes = getQuizzes;
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
@@ -25,8 +26,30 @@
         vm.finalizeAnswers = finalizeAnswers;
 
         // instatiated Functions
+        activate();
 
         // ################### Defined Methods ################### //
+
+        // CRUD Functions
+
+        // INDEX
+        function getQuizzes() {
+            return QuizFactory.getQuizzes()
+                .then(setQuizzes)
+        }
+
+
+        function setQuizzes(data) {
+            return vm.quizzes = data
+        }
+
+        // On load Functions
+        function activate() {
+            getQuizzes();
+        }
+
+
+        // Quiz Functionality Functions
 
         function setActiveQuestion() {
 
