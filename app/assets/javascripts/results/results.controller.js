@@ -9,6 +9,7 @@
         var vm = this;
 
         // vm Variables
+        vm.currentQuizId = QuizFactory.currentQuizId
         vm.answeredQuestions = QuizFactory.answeredQuestions
         vm.activeResults = QuizFactory.finalize // true
         vm.correctAnswers = 0
