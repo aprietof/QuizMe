@@ -1,7 +1,7 @@
 <div class="row" ng-hide="vm.finalize">
 
     <!-- ****** Progres Bar ****** -->
-    <div class="col-xs-8">
+    <div class="col-xs-8 pogress">
         <h4>Progress</h4>
         <div class="btn-toolbar">
             <button class="btn"
@@ -10,8 +10,8 @@
                     ng-click="vm.switchQuestion($index)">
               <span class="glyphicon"
                   ng-class="{
-                    'glyphicon-pencil': question.answered !== null,
-                    'glyphicon-question-sign': question.answered === null
+                    'glyphicon-check': question.answered !== null,
+                    'glyphicon-log-in': question.answered === null
                   }">
               </span>
           </button>
@@ -25,13 +25,13 @@
         <div class="row legend">
             <div class="col-sm-4">
                 <button class="btn btn-info">
-          <span class="glyphicon glyphicon-pencil"></span>
+          <span class="glyphicon glyphicon-check"></span>
         </button>
                 <p>Answered</p>
             </div>
             <div class="col-sm-4">
                 <button class="btn btn-danger">
-          <span class="glyphicon glyphicon-question-sign"></span>
+          <span class="glyphicon glyphicon-log-in"></span>
         </button>
                 <p>Unanswered</p>
             </div>
