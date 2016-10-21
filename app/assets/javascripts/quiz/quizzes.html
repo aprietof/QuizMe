@@ -1,5 +1,7 @@
 <h1>Quizzes</h1>
 
 <ul>
-  <li ng-repeat="quiz in vm.quizzes">{{quiz}}</li>
+  <li ng-repeat="quiz in vm.quizzes">
+    <a ui-sref="home.quiz({id: quiz.id})" >{{quiz.title}}</a>
+  </li>
 </ul>

@@ -2,15 +2,18 @@
 
     'use strict'
 
-    QuizController.$inject = ['QuizFactory']
 
-    function QuizController(QuizFactory) {
+    QuizController.$inject = ['QuizFactory', 'quiz']
+
+    function QuizController(QuizFactory, quiz) {
 
         var vm = this;
         var numQuestionsAnswered = QuizFactory.numQuestionsAnswered // 0
 
         // vm Variables
-        vm.questions = QuizFactory.quizQuestions() // -> Gets all questions from factory
+        vm.quiz = quiz.data
+        QuizFactory.currentQuizId = vm.quiz.id
+        vm.questions = vm.quiz.questions
         vm.activeQuestionIndex = QuizFactory.activeQuestionIndex; // -> 0
         vm.activeQuestion = vm.questions[vm.activeQuestionIndex] // -> First
         vm.error = false
@@ -18,7 +21,7 @@
 
 
         // Callable Methods
-        vm.getQuizzes = getQuizzes;
+
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
@@ -26,31 +29,12 @@
         vm.finalizeAnswers = finalizeAnswers;
 
         // instatiated Functions
-        activate();
+
 
         // ################### Defined Methods ################### //
 
-        // CRUD Functions
-
-        // INDEX
-        function getQuizzes() {
-            return QuizFactory.getQuizzes()
-                .then(setQuizzes)
-        }
-
-
-        function setQuizzes(data) {
-            return vm.quizzes = data
-        }
-
-        // On load Functions
-        function activate() {
-            getQuizzes();
-        }
-
 
         // Quiz Functionality Functions
-
         function setActiveQuestion() {
 
             var breakOut = false;
@@ -119,8 +103,6 @@
             // Update quiz questions with user answers
             QuizFactory.answeredQuestions = vm.questions
         }
-
-
     }
 
     angular
