@@ -19,12 +19,17 @@
                 .state('home.quizzes', {
                     url: 'quizzes',
                     templateUrl: 'quiz/quizzes.html',
-                    controller: 'QuizController as vm'
+                    controller: 'QuizzesController as vm'
                 })
                 .state('home.quiz', {
-                    url: 'quiz',
+                    url: 'quiz/:id',
                     templateUrl: 'quiz/quiz.html',
-                    controller: 'QuizController as vm'
+                    controller: 'QuizController as vm',
+                    resolve: {
+                        quiz: function($http, $stateParams) {
+                            return $http.get('/quizzes/' + $stateParams.id);
+                        }
+                    }
                 })
                 .state('home.results', {
                     url: 'results',
@@ -32,24 +37,10 @@
                     controller: 'ResultsController as vm'
                 })
                 .state('card', {
-                    url: '/card/:id',
+                    url: '/card',
                     templateUrl: 'card/card.html',
                     controller: 'ListController as vm'
                 });
-            // .state('user', {
-            //     // Add Configuration Object
-            //     url: '/user/:id',
-            //     templateUrl: 'views/user.html',
-            //     controller: 'UserController as vm',
-            //     // Fetch Data
-            //     resolve: {
-            //         // Pass $http and $statPparams as arguments
-            //         user: function functionName($http, $stateParams) {
-            //             // Return response Data passing a dinamic Url
-            //             return $http.get('http://0.0.0.0:8882/rest/user/' + $stateParams.id);
-            //         }
-            //     }
-            // });
             $urlRouterProvider.otherwise('/')
         });
 }());
