@@ -4,6 +4,7 @@
         "dependencies": {
             "angular": "v1.5.8",
             "angular-ui-router": "latest",
+            "angular-messages": "v1.5.8",
             "bootstrap": "~3.0.0"
         }
     }
