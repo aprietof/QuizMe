@@ -1,7 +1,66 @@
-<h1>Quizzes</h1>
+<!-- Navbar -->
+<div ng-include="'quiz/_navbar.html'"></div>
+<!-- End Navbar -->
 
-<ul>
-  <li ng-repeat="quiz in vm.quizzes">
-    <a ui-sref="home.quiz({id: quiz.id})" >{{quiz.title}}</a>
-  </li>
-</ul>
+<!-- Create ection -->
+<div class="create" ng-hide="vm.indexMode">
+
+    <div class="row">
+        <div class="col-xs-6 col-xs-offset-3">
+          <h1>Create Quizz <span class="glyphicon glyphicon-pencil"></span></h1>
+
+            <form name="form" ng-submit="vm.createQuiz()">
+
+                <div class="form-group">
+                    <label>Title:  <small class="muted">* Required & must have at least 2 characters</small></label>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control"
+                            name="title"
+                            type="text"
+                            ng-model="vm.newQuiz.title"
+                            placeholder="Add title here ..."
+                            minlength="2"
+                            required="required">
+                </div>
+
+                <div class="form-group">
+                    <label>Description: <small class="muted">Optional</small></label>
+                </div>
+
+                <div class="form-group">
+                    <textarea class="form-control" rows="3" ng-model="vm.newQuiz.description" placeholder="Add description here ...">
+              </textarea>
+                </div>
+
+                <input class="btn btn-success pull-right" type="submit" value="Create Quiz">
+            </form>
+        </div>
+    </div>
+</div>
+<!-- End Create Section -->
+
+
+<!-- Quiz List -->
+<div class="quizzes" ng-show=vm.indexMode>
+    <div class="row">
+        <div class="col-sm-4" ng-repeat="quiz in vm.quizzes | filter:vm.search">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3>{{quiz.title}}</h3>
+                </div>
+                <div class="panel-body">
+                    <img src="http://4.bp.blogspot.com/-msEvWGKlygE/VnEcNFjkqkI/AAAAAAAAAns/GTh7ICZgCEw/s1600/Friends-together-with%2Btitle-friends.jpg" class="img-thumbnail">
+                </div>
+                <div class="panel-body">
+                    {{quiz.description}}
+                </div>
+                <div class="panel-body">
+                    <button class="btn btn-info pull-right" ui-sref="home.quiz({id: quiz.id})">Quiz Me!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Quiz List -->
