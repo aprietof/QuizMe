@@ -18,6 +18,21 @@
                 .catch(handleError)
         }
 
+        function createQuiz(quiz) {
+            var req = {
+                method: 'POST',
+                url: '/quizzes',
+                headers: {
+                    'Content-Type': 'aplication/json'
+                },
+                data: {
+                    quiz: quiz
+                }
+            }
+            return $http(req)
+                .catch(handleError)
+        }
+
         // Handle $http responses
 
         function handleResponse(response) {
