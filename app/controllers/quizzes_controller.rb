@@ -28,15 +28,6 @@ class QuizzesController < ApplicationController
         end
     end
 
-    def update
-        quiz = Quiz.find(params[:id])
-        if quiz.update(quiz_params)
-            render json: quiz
-        else
-            render json: quiz
-        end
-    end
-
     def destroy
         quiz = Quiz.find(params[:id])
         render json: quiz
