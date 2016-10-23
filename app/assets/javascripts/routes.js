@@ -22,7 +22,7 @@
                     controller: 'QuizzesController as vm'
                 })
                 .state('home.quiz', {
-                    url: 'quiz/:id',
+                    url: 'quizzes/:id',
                     templateUrl: 'quiz/quiz.html',
                     controller: 'QuizController as vm',
                     resolve: {
