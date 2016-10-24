@@ -1,0 +1,109 @@
+<!-- <div class="row">
+    <div class="col-xs-6 col-xs-offset-3"> -->
+      <!-- Add Question -->
+      <form name="form" ng-submit="vm.createQuestion()">
+
+          <div class="row">
+
+              <label>Question: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+              <div class="form-group">
+                  <textarea class="form-control"
+                            name="question"
+                            rows="2"
+                            ng-model="vm.newQuestion.text"
+                            required="required"
+                            placeholder="Add question here ...">
+                  </textarea>
+              </div>
+          </div>
+
+          <div class="row">
+              <div>
+
+                  <label>Answer #1: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+                  <div class="form-group">
+                      <input class="form-control"
+                              name="answer1"
+                              type="text"
+                              ng-model="vm.newQuestion.possibilities_attributes[0].answer"
+                              required="required"
+                              placeholder="Add answer here ...">
+                  </div>
+              </div>
+              <div>
+
+                  <label>Answer #2: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+                  <div class="form-group">
+                      <input class="form-control"
+                              name="answer2"
+                              type="text"
+                              ng-model="vm.newQuestion.possibilities_attributes[1].answer"
+                              required="required"
+                              placeholder="Add answer here ...">
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+              <div>
+
+                  <label>Answer #3: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+                  <div class="form-group">
+                      <input class="form-control"
+                              name="answer3"
+                              type="text"
+                              ng-model="vm.newQuestion.possibilities_attributes[2].answer"
+                              required="required"
+                              placeholder="Add answer here ...">
+                  </div>
+              </div>
+              <div>
+
+                  <label>Answer #4: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+                  <div class="form-group">
+                      <input class="form-control"
+                              name="answer4"
+                              type="text"
+                              ng-model="vm.newQuestion.possibilities_attributes[3].answer"
+                              required="required"
+                              placeholder="Add answer here ...">
+                  </div>
+              </div>
+          </div>
+
+          <div class="row">
+            <div>
+
+              <label for="answer">Select Answer <em><small class="muted">* Required</small></em></label>
+
+              <div class="row">
+
+                <div class="col-xs-4 form-group">
+                  <select class="form-control" ng-model="vm.newQuestion.answer" name="answer" required>
+                    <option value="">---Please select---</option>
+                    <option value="0">Answer #1</option>
+                    <option value="1">Answer #2</option>
+                    <option value="2">Answer #3</option>
+                    <option value="3">Answer #4</option>
+                  </select>
+                </div>
+
+                <div class="col-sm-8">
+                    <button type="submit" class="btn btn-success pull-right">Add Question</button>
+                </div>
+
+              </div>
+            </div>
+          </div>
+      </form>
+
+      <hr>
+
+      <div class="row finish-quiz">
+        <div class="col-sm-6 col-sm-offset-4">
+          <button class="btn btn-lg btn-danger" ng-click="vm.activate()">Finish Quiz</button>
+        </div>
+      </div>
+      <!-- End Add Question -->
+  <!-- </div>
+</div> -->
