@@ -5,6 +5,7 @@
     function QuizFactory($http) {
         return {
             getQuizzes: getQuizzes,
+            createQuiz: createQuiz,
             currentQuizId: 0,
             finalize: false,
             numQuestionsAnswered: 0,
@@ -23,7 +24,7 @@
                 method: 'POST',
                 url: '/quizzes',
                 headers: {
-                    'Content-Type': 'aplication/json'
+                    'Content-Type': 'application/json'
                 },
                 data: {
                     quiz: quiz
