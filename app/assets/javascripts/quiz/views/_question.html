@@ -8,26 +8,29 @@
   <!-- End Error Alert -->
 
   <div ng-hide="vm.finalize">
-    <h3>Question:</h3>
+
 
     <!-- ****** Question Box ****** -->
-    <div class="panel panel-info" >
-      <div class="panel-heading">
-        <h4><strong>{{vm.activeQuestionIndex + 1 + ". "}}</strong>{{vm.activeQuestion.text}}</h4>
-      </div>
-      <!-- ****** Answers ****** -->
-      <div class="panel-body">
-        <div class="row">
-          <div class="col-sm-6" ng-repeat="posibility in vm.activeQuestion.possibilities">
-            <h4 class="answer"
-                ng-class="{'answer-info': $index === vm.activeQuestion.answered}"
-                ng-click="vm.selectAnswer($index)">
-                {{posibility.answer}}
-            </h4>
+    <div class="col-xs-12">
+      <h3>Question:</h3>
+      <div class="panel panel-info" >
+        <div class="panel-heading">
+          <h4><strong>{{vm.activeQuestionIndex + 1 + ". "}}</strong>{{vm.activeQuestion.text}}</h4>
+        </div>
+        <!-- ****** Answers ****** -->
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-sm-6" ng-repeat="posibility in vm.activeQuestion.possibilities">
+              <h4 class="answer"
+                  ng-class="{'answer-info': $index === vm.activeQuestion.answered}"
+                  ng-click="vm.selectAnswer($index)">
+                  {{posibility.answer}}
+              </h4>
+            </div>
           </div>
         </div>
+        <!-- End Answers -->
       </div>
-      <!-- End Answers -->
     </div>
     <!-- End Question Box -->
 
