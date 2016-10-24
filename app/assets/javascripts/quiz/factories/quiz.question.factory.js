@@ -19,7 +19,7 @@
                 method: 'POST',
                 url: '/questions',
                 headers: {
-                    'Content-Type': 'aplication/json'
+                    'Content-Type': 'application/json'
                 },
                 data: {
                     question: question
