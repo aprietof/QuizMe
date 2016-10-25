@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161020153918) do
+ActiveRecord::Schema.define(version: 20161025155253) do
 
   create_table "possibilities", force: :cascade do |t|
     t.text     "answer"
@@ -33,8 +33,9 @@ ActiveRecord::Schema.define(version: 20161020153918) do
   create_table "quizzes", force: :cascade do |t|
     t.string   "title"
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                                                                                                 null: false
+    t.datetime "updated_at",                                                                                                 null: false
+    t.string   "image",       default: "http://cdn2.business2community.com/wp-content/uploads/2015/04/Quiz-300x198.png.png"
   end
 
 end

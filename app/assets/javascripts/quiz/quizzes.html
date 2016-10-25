@@ -31,6 +31,17 @@
                               required="required">
                   </div>
 
+                  <label>Image URL:  <em><small class="muted">Optional - add a image URL</small></em></label>
+
+                  <div class="form-group">
+                      <input class="form-control"
+                              name="image"
+                              type="text"
+                              ng-model="vm.newQuiz.image"
+                              placeholder="Add image URL here ..."
+                              minlength="7">
+                  </div>
+
 
                   <label>Description: <em><small class="muted">Optional maximum 200 characters</small></em></label>
 
@@ -78,7 +89,7 @@
                     <h3>{{quiz.title}}</h3>
                 </div>
                 <div class="panel-body">
-                    <img src="http://cdn2.business2community.com/wp-content/uploads/2015/04/Quiz-300x198.png.png" class="img-thumbnail">
+                    <img ng-src="{{quiz.image}}" class="img-thumbnail">
                 </div>
                 <div class="panel-body panel-description">
                     {{quiz.description}}
