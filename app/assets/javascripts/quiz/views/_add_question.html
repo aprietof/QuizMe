@@ -1,11 +1,22 @@
-<!-- <div class="row">
-    <div class="col-xs-6 col-xs-offset-3"> -->
+<div class="row">
+    <div class="col-xs-6 col-xs-offset-3">
+
+      <div class="row" ng-show="vm.messages">
+        <div class="alert alert-success">
+          <p>Question created! Please add another question or click 'Finish Quiz'</p>
+        </div>
+      </div>
+
+      <h1>Please Add a Question Here</h1>
+
+      <hr>
+
       <!-- Add Question -->
       <form name="form" ng-submit="vm.createQuestion()">
 
           <div class="row">
 
-              <label>Question: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+              <label>Question: <em><small class="muted">* Required - must have at least 2 characters</small></em></label>
               <div class="form-group">
                   <textarea class="form-control"
                             name="question"
@@ -20,7 +31,7 @@
           <div class="row">
               <div>
 
-                  <label>Answer #1: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+                  <label>Answer #1: <em><small class="muted">* Required - must have at least 2 characters</small></em></label>
                   <div class="form-group">
                       <input class="form-control"
                               name="answer1"
@@ -32,7 +43,7 @@
               </div>
               <div>
 
-                  <label>Answer #2: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+                  <label>Answer #2: <em><small class="muted">* Required - must have at least 2 characters</small></em></label>
                   <div class="form-group">
                       <input class="form-control"
                               name="answer2"
@@ -47,7 +58,7 @@
           <div class="row">
               <div>
 
-                  <label>Answer #3: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+                  <label>Answer #3: <em><small class="muted">* Required - must have at least 2 characters</small></em></label>
                   <div class="form-group">
                       <input class="form-control"
                               name="answer3"
@@ -59,7 +70,7 @@
               </div>
               <div>
 
-                  <label>Answer #4: <em><small class="muted">* Required & must have at least 2 characters</small></em></label>
+                  <label>Answer #4: <em><small class="muted">* Required - must have at least 2 characters</small></em></label>
                   <div class="form-group">
                       <input class="form-control"
                               name="answer4"
@@ -105,5 +116,5 @@
         </div>
       </div>
       <!-- End Add Question -->
-  <!-- </div>
-</div> -->
+  </div>
+</div>
