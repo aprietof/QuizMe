@@ -5,24 +5,24 @@
 
 <!-- Quiz List -->
 <div class="quizzes" ng-show=vm.indexMode>
-    <div class="row">
-        <div class="col-sm-4" ng-repeat="quiz in vm.quizzes | filter:vm.search">
-            <div class="panel panel-default panel-card">
-                <div class="panel-heading">
-                    <h3>{{quiz.title}}</h3>
-                </div>
-                <div class="panel-body">
-                    <img ng-src="{{quiz.image}}" class="img-thumbnail">
-                </div>
-                <div class="panel-body panel-description">
-                    {{quiz.description}}
-                </div>
-                <div class="panel-body">
-                    <button class="btn btn-info pull-right" ui-sref="home.quiz({id: quiz.id})">Quiz Me!</button>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-sm-4" ng-repeat="quiz in vm.quizzes | filter:vm.search">
+      <div class="panel panel-default panel-card">
+        <div class="panel-heading">
+            <h3>{{quiz.title}}</h3>
         </div>
+        <div class="panel-body">
+            <img ng-src="{{quiz.image}}" class="img-thumbnail">
+        </div>
+        <div class="panel-body panel-description">
+            {{quiz.description}}
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-info pull-right" ui-sref="home.quiz({id: quiz.id})">Quiz Me!</button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 <!-- End Quiz List -->
 
@@ -33,57 +33,54 @@
     <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
 
-            <div class="row">
-                <h1>Create Quiz <span class="glyphicon glyphicon-pencil"></span></h1>
-            </div>
+          <div class="row">
+              <h1>Create Quiz <span class="glyphicon glyphicon-pencil"></span></h1>
+          </div>
+          <hr>
+          <!-- Add Quiz Form -->
+          <div class="row">
+            <form name="form" ng-submit="vm.createQuiz()">
 
-            <hr>
+                <label>Title:  <em><small class="muted">* Required - must have between 2 and 24 characters</small></em></label>
 
-            <!-- Add Quiz Form -->
-            <div class="row">
-              <form name="form" ng-submit="vm.createQuiz()">
+                <div class="form-group">
+                  <input class="form-control"
+                          name="title"
+                          type="text"
+                          ng-model="vm.newQuiz.title"
+                          placeholder="Add title here ..."
+                          minlength="2"
+                          maxlength="24"
+                          required="required">
+                </div>
 
-                  <label>Title:  <em><small class="muted">* Required - must have between 2 and 20 characters</small></em></label>
+                <label>Image URL:  <em><small class="muted">Optional - add a image URL</small></em></label>
 
-                  <div class="form-group">
-                      <input class="form-control"
-                              name="title"
-                              type="text"
-                              ng-model="vm.newQuiz.title"
-                              placeholder="Add title here ..."
-                              minlength="2"
-                              maxlength="20"
-                              required="required">
-                  </div>
-
-                  <label>Image URL:  <em><small class="muted">Optional - add a image URL</small></em></label>
-
-                  <div class="form-group">
-                      <input class="form-control"
-                              name="image"
-                              type="text"
-                              ng-model="vm.newQuiz.image"
-                              placeholder="Add image URL here ..."
-                              minlength="7">
-                  </div>
+                <div class="form-group">
+                  <input class="form-control"
+                          name="image"
+                          type="text"
+                          ng-model="vm.newQuiz.image"
+                          placeholder="Add image URL here ..."
+                          minlength="7">
+                </div>
 
 
-                  <label>Description: <em><small class="muted">Optional maximum 200 characters</small></em></label>
+                <label>Description: <em><small class="muted">Optional maximum 200 characters</small></em></label>
 
-                  <div class="form-group">
-                      <textarea class="form-control"
-                                rows="3"
-                                ng-model="vm.newQuiz.description"
-                                maxlength="200"
-                                placeholder="Add description here ...">
-                      </textarea>
-                  </div>
+                <div class="form-group">
+                  <textarea class="form-control"
+                            rows="3"
+                            ng-model="vm.newQuiz.description"
+                            maxlength="200"
+                            placeholder="Add description here ...">
+                  </textarea>
+                </div>
 
-                  <input class="btn btn-success pull-right" type="submit" value="Create Quiz">
-              </form>
-            </div>
-            <!-- End Quiz Form -->
-
+                <input class="btn btn-success pull-right" type="submit" value="Create Quiz">
+            </form>
+          </div>
+          <!-- End Quiz Form -->
         </div>
     </div>
 </div>
@@ -93,14 +90,15 @@
 <!-- Edit Section -->
 <div class="edit" ng-show="vm.editMode">
 
-    <div class="row">
-        <div class="col-sm-8 col-sm-offset-2">
-          <h1>{{vm.lastQuiz.title}}</h1>
-          <p class="lead">{{vm.lastQuiz.description}}</p>
-        </div>
+  <div class="row">
+    <div class="col-sm-8 col-sm-offset-2">
+      <h1>{{vm.lastQuiz.title}}</h1>
+      <p class="lead">{{vm.lastQuiz.description}}</p>
     </div>
+  </div>
 
-    <div ng-include="'quiz/views/_add_question.html'"></div>
+  <!-- Partial -->
+  <div ng-include="'quiz/views/_add_question.html'"></div>
 
 </div>
 <!-- End Edit Section -->

@@ -22,7 +22,7 @@ body, h1, h2, h3, h4, p, a {
  }
 
  .main {
-   min-height: 850px;
+   min-height: 750px;
  }
 
 .well-img {
@@ -80,6 +80,10 @@ body, h1, h2, h3, h4, p, a {
   margin-left: 10px;
 }
 
+.col-xs-12 button.btn.btn-warning {
+  margin-right: 15px;
+}
+
 /* ###### Panel ###### */
 
 .panel-question {
@@ -90,10 +94,14 @@ body, h1, h2, h3, h4, p, a {
 
 .panel-card {
   border-radius: 0;
-  min-height: 480px;
+  min-height: 500px;
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+}
+
+.panel-card h3 {
+  text-align: center;
 }
 
 .panel-card:hover {
@@ -104,7 +112,7 @@ body, h1, h2, h3, h4, p, a {
 
 .panel-heading h4 {
   line-height: 2;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 300;
   min-height: 70px;
 }
@@ -282,4 +290,12 @@ body, h1, h2, h3, h4, p, a {
 
 select {
   text-align-last:center;
+}
+
+span.badge.badge-info {
+  font-size: 30px;
+}
+
+.list-group-item:last-child {
+  font-size: 2em;
 }
