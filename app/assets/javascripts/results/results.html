@@ -1,22 +1,39 @@
-<!-- ****** No Results Warning ****** -->
-<div class="row" ng-hide="vm.activeResults">
-  <h1>Sorry, No results to show at this time </h1>
-  <a class="btn btn-warning" href="#" ui-sref="home.quizzes">Show Me Quizzes!</a>
-</div>
-<!-- End No Results Warning -->
-
-<!-- ****** Results Container ****** -->
-<div class="row" ng-show="vm.activeResults">
-
-  <!-- ****** Results Icon Bar Partial ****** -->
-  <div ng-include="'results/_results_bar.html'">
+<!-- navbar -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" ui-sref="home.quizzes">QuizMe! <span class="glyphicon glyphicon-check"></span></a>
+      </a>
+    </div>
   </div>
-  <!-- End Results Icon Bar Partial -->
+</nav>
+<!-- End Nvbar -->
 
-  <!-- ****** Answers Partial ****** -->
-  <div ng-include="'results/_answers.html'">
+<div class="col-sm-12">
+  <!--  No Results Warning  -->
+  <div class="row" ng-hide="vm.activeResults">
+    <h1>Sorry, No results to show at this time </h1>
+    <a class="btn btn-warning" href="#" ui-sref="home.quizzes">Show Me Quizzes!</a>
   </div>
-  <!-- End Answers Partial -->
+  <!-- End No Results Warning -->
 
+
+  <!--  Results Container  -->
+  <div class="row" ng-show="vm.activeResults">
+
+
+    <!--  Results Icon Bar Partial  -->
+    <div ng-include="'results/_results_bar.html'">
+    </div>
+    <!-- End Results Icon Bar Partial -->
+
+
+    <!--  Answers Partial  -->
+    <div ng-include="'results/_answers.html'">
+    </div>
+    <!-- End Answers Partial -->
+
+
+  </div>
+  <!-- End Results Container -->
 </div>
-<!-- End Results Container -->
