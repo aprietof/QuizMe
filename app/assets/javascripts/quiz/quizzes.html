@@ -2,6 +2,31 @@
 <div ng-include="'quiz/views/_navbar.html'"></div>
 <!-- End Navbar -->
 
+
+<!-- Quiz List -->
+<div class="quizzes" ng-show=vm.indexMode>
+    <div class="row">
+        <div class="col-sm-4" ng-repeat="quiz in vm.quizzes | filter:vm.search">
+            <div class="panel panel-default panel-card">
+                <div class="panel-heading">
+                    <h3>{{quiz.title}}</h3>
+                </div>
+                <div class="panel-body">
+                    <img ng-src="{{quiz.image}}" class="img-thumbnail">
+                </div>
+                <div class="panel-body panel-description">
+                    {{quiz.description}}
+                </div>
+                <div class="panel-body">
+                    <button class="btn btn-info pull-right" ui-sref="home.quiz({id: quiz.id})">Quiz Me!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Quiz List -->
+
+
 <!-- Create ection -->
 <div class="create" ng-show="vm.createMode">
 
@@ -64,6 +89,7 @@
 </div>
 <!-- End Create Section -->
 
+
 <!-- Edit Section -->
 <div class="edit" ng-show="vm.editMode">
 
@@ -78,27 +104,3 @@
 
 </div>
 <!-- End Edit Section -->
-
-
-<!-- Quiz List -->
-<div class="quizzes" ng-show=vm.indexMode>
-    <div class="row">
-        <div class="col-sm-4" ng-repeat="quiz in vm.quizzes | filter:vm.search">
-            <div class="panel panel-default panel-card">
-                <div class="panel-heading">
-                    <h3>{{quiz.title}}</h3>
-                </div>
-                <div class="panel-body">
-                    <img ng-src="{{quiz.image}}" class="img-thumbnail">
-                </div>
-                <div class="panel-body panel-description">
-                    {{quiz.description}}
-                </div>
-                <div class="panel-body">
-                    <button class="btn btn-info pull-right" ui-sref="home.quiz({id: quiz.id})">Quiz Me!</button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End Quiz List -->
