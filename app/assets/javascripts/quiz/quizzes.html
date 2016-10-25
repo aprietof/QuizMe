@@ -1,59 +1,86 @@
 <!-- Navbar -->
-<div ng-include="'quiz/_navbar.html'"></div>
+<div ng-include="'quiz/views/_navbar.html'"></div>
 <!-- End Navbar -->
 
 <!-- Create ection -->
-<div class="create" ng-hide="vm.indexMode">
+<div class="create" ng-show="vm.createMode">
 
     <div class="row">
         <div class="col-xs-6 col-xs-offset-3">
-          <h1>Create Quizz <span class="glyphicon glyphicon-pencil"></span></h1>
 
-            <form name="form" ng-submit="vm.createQuiz()">
+            <div class="row">
+                <h1>Create Quiz <span class="glyphicon glyphicon-pencil"></span></h1>
+            </div>
 
-                <div class="form-group">
-                    <label>Title:  <small class="muted">* Required & must have at least 2 characters</small></label>
-                </div>
+            <hr>
 
-                <div class="form-group">
-                    <input class="form-control"
-                            name="title"
-                            type="text"
-                            ng-model="vm.newQuiz.title"
-                            placeholder="Add title here ..."
-                            minlength="2"
-                            required="required">
-                </div>
+            <!-- Add Quiz Form -->
+            <div class="row">
+              <form name="form" ng-submit="vm.createQuiz()">
 
-                <div class="form-group">
-                    <label>Description: <small class="muted">Optional</small></label>
-                </div>
+                  <label>Title:  <em><small class="muted">* Required - must have between 2 and 20 characters</small></em></label>
 
-                <div class="form-group">
-                    <textarea class="form-control" rows="3" ng-model="vm.newQuiz.description" placeholder="Add description here ...">
-              </textarea>
-                </div>
+                  <div class="form-group">
+                      <input class="form-control"
+                              name="title"
+                              type="text"
+                              ng-model="vm.newQuiz.title"
+                              placeholder="Add title here ..."
+                              minlength="2"
+                              maxlength="20"
+                              required="required">
+                  </div>
 
-                <input class="btn btn-success pull-right" type="submit" value="Create Quiz">
-            </form>
+
+                  <label>Description: <em><small class="muted">Optional maximum 200 characters</small></em></label>
+
+                  <div class="form-group">
+                      <textarea class="form-control"
+                                rows="3"
+                                ng-model="vm.newQuiz.description"
+                                maxlength="200"
+                                placeholder="Add description here ...">
+                      </textarea>
+                  </div>
+
+                  <input class="btn btn-success pull-right" type="submit" value="Create Quiz">
+              </form>
+            </div>
+            <!-- End Quiz Form -->
+
         </div>
     </div>
 </div>
 <!-- End Create Section -->
+
+<!-- Edit Section -->
+<div class="edit" ng-show="vm.editMode">
+
+    <div class="row">
+        <div class="col-sm-8 col-sm-offset-2">
+          <h1>{{vm.lastQuiz.title}}</h1>
+          <p class="lead">{{vm.lastQuiz.description}}</p>
+        </div>
+    </div>
+
+    <div ng-include="'quiz/views/_add_question.html'"></div>
+
+</div>
+<!-- End Edit Section -->
 
 
 <!-- Quiz List -->
 <div class="quizzes" ng-show=vm.indexMode>
     <div class="row">
         <div class="col-sm-4" ng-repeat="quiz in vm.quizzes | filter:vm.search">
-            <div class="panel panel-default">
+            <div class="panel panel-default panel-card">
                 <div class="panel-heading">
                     <h3>{{quiz.title}}</h3>
                 </div>
                 <div class="panel-body">
-                    <img src="http://4.bp.blogspot.com/-msEvWGKlygE/VnEcNFjkqkI/AAAAAAAAAns/GTh7ICZgCEw/s1600/Friends-together-with%2Btitle-friends.jpg" class="img-thumbnail">
+                    <img src="http://cdn2.business2community.com/wp-content/uploads/2015/04/Quiz-300x198.png.png" class="img-thumbnail">
                 </div>
-                <div class="panel-body">
+                <div class="panel-body panel-description">
                     {{quiz.description}}
                 </div>
                 <div class="panel-body">
