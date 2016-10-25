@@ -41,6 +41,6 @@
                     templateUrl: 'card/card.html',
                     controller: 'ListController as vm'
                 });
-            $urlRouterProvider.otherwise('/')
+            $urlRouterProvider.otherwise('quizzes')
         });
 }());
