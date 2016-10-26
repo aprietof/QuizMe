@@ -30,6 +30,8 @@
 
         // instatiated Functions
 
+        // Scroll to top
+        window.scrollTo(0, 0);
 
         // ################### Defined Methods ################### //
 

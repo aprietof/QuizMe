@@ -119,6 +119,7 @@
 
         // On load Functions
         function activate() {
+            window.scrollTo(0, 0);
             getQuizzes();
             reset();
         }

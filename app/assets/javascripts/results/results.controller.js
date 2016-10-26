@@ -8,6 +8,9 @@
 
         var vm = this;
 
+        // Scroll to top
+        window.scrollTo(0, 0);
+
         // vm Variables
         vm.currentQuizId = QuizFactory.currentQuizId
         vm.answeredQuestions = QuizFactory.answeredQuestions
