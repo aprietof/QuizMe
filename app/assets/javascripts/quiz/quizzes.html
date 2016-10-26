@@ -15,7 +15,7 @@
             <img ng-src="{{quiz.image}}" class="img-thumbnail">
         </div>
         <div class="panel-body panel-buttons">
-          <button class="btn btn-success" ng-click="vm.showQuiz(quiz.id)">
+          <button class="btn btn-success" ui-sref="home.learn({id: quiz.id})">
             Teach Me! <span class="glyphicon glyphicon-book"></span>
           </button>
           <button class="btn btn-warning" ng-click="vm.editQuiz(quiz.id)">
