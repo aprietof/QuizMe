@@ -19,6 +19,7 @@
         vm.addQuiz = addQuiz;
         vm.createQuiz = createQuiz;
         vm.createQuestion = createQuestion;
+        vm.editQuiz = editQuiz;
 
         // instatiated Functions
         activate();
@@ -42,7 +43,7 @@
             return vm.quizzes = data
         }
 
-        // *** CREATE NEW QUIZ ***
+        // *** CREATE QUIZ ***
 
         function addQuiz() {
             // Switch from index mode to create mode
@@ -53,28 +54,28 @@
         function createQuiz() {
             // Create quiz in DB
             return QuizFactory.createQuiz(vm.newQuiz)
-                // after creating a quiz get last quiz
-                .then(getLastQuiz)
+                // after creating a quiz get last quiz created
+                .then(getCurrentQuiz)
         }
 
-        function getLastQuiz() {
+        function getCurrentQuiz() {
             return fetchQuizzes()
-                .then(setLastQuiz)
+                .then(setCurrentQuiz)
         }
 
-        function setLastQuiz(data) {
+        function setCurrentQuiz(data) {
             // Clear vm.newQuiz
             vm.newQuiz = {};
             // Switch from create mode to edit mode (add questions)
             vm.createMode = false;
             vm.editMode = true;
             // Return last quiz created
-            return vm.lastQuiz = data[data.length - 1]
+            return vm.currentQuiz = data[data.length - 1]
         }
 
         function createQuestion() {
             // Set newQuestion quiz_id to last quiz created id
-            vm.newQuestion.quiz_id = vm.lastQuiz.id;
+            vm.newQuestion.quiz_id = vm.currentQuiz.id;
             // Create question in DB
             return QuestionFactory.createQuestion(vm.newQuestion)
                 .then(clearQuestion)
@@ -89,6 +90,21 @@
             setTimeout(function() {
                 vm.messages = false
             }, 1000);
+        }
+
+        // *** ADD QUESTION ***
+
+        function editQuiz(id) {
+            // Set current quiz
+            for (var i = 0; i < vm.quizzes.length; i++) {
+                if (vm.quizzes[i].id === id) {
+                    vm.currentQuiz = vm.quizzes[i];
+                    // Activate edit mode
+                    vm.indexMode = false
+                    vm.editMode = true
+                    window.scrollTo(0, 0);
+                }
+            }
         }
 
         function reset() {
