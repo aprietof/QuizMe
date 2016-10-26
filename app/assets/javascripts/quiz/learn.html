@@ -1,1 +1,46 @@
-<h1>Learn</h1>
+<!-- navbar -->
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#" ui-sref="home.quizzes">QuizMe! <span class="glyphicon glyphicon-check"></span></a>
+      </a>
+    </div>
+  </div>
+</nav>
+<!-- End Nvbar -->
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="page-header">
+      <h1>{{vm.quiz.title}}</h1>
+    </div>
+  </div>
+</div>
+
+<!-- Question -->
+<div class="row">
+  <div class="col-sm-6 learn" ng-repeat="question in vm.questions">
+    <div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading heading-learn"><p>{{$index + 1 + '. ' + question.text}}</p></div>
+      <!-- List group -->
+       <ol class="list-group">
+         <li class="list-group-item"
+             ng-repeat="possibility in question.possibilities"
+             ng-class="{'answer-success': $index === question.answer}">
+             {{$index + 1 + '. ' + possibility.answer}}
+          </li>
+       </ol>
+    </div>
+  </div>
+</div>
+<!-- End Question -->
+
+<!-- Bottom Page Buttons -->
+<div class="row">
+  <div class="col-sm-12">
+    <input type="button" value="Quiz Me!" class="btn btn-lg btn-info pull-right" ui-sref="home.quiz({id: vm.quiz.id})" />
+    <input type="button" value="Take Me Back" class="btn btn-lg btn-warning pull-right" ui-sref="home.quizzes" />
+  </div>
+</div>
+<!-- End Bottom Page Buttons -->
