@@ -10,7 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161025155253) do
+ActiveRecord::Schema.define(version: 20161027193821) do
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "possibilities", force: :cascade do |t|
     t.text     "answer"
@@ -36,6 +42,7 @@ ActiveRecord::Schema.define(version: 20161025155253) do
     t.datetime "created_at",                                                                                                 null: false
     t.datetime "updated_at",                                                                                                 null: false
     t.string   "image",       default: "http://cdn2.business2community.com/wp-content/uploads/2015/04/Quiz-300x198.png.png"
+    t.integer  "category_id"
   end
 
 end

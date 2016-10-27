@@ -2,7 +2,7 @@ class QuizzesController < ApplicationController
 
     def index
         quizzes = Quiz.all
-        render json: quizzes, include: ['questions', 'questions.possibilities']
+        render json: quizzes, include: ['category','questions', 'questions.possibilities']
      end
 
     def create
@@ -16,7 +16,7 @@ class QuizzesController < ApplicationController
 
     def show
         quiz = Quiz.find(params[:id])
-        render json: quiz, include: ['questions', 'questions.possibilities']
+        render json: quiz, include: ['category','questions', 'questions.possibilities']
     end
 
     def update
@@ -36,6 +36,6 @@ class QuizzesController < ApplicationController
     private
 
     def quiz_params
-        params.require(:quiz).permit(:title, :description, :image)
+        params.require(:quiz).permit(:title, :description, :image, :category_id)
     end
 end
