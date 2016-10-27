@@ -96,12 +96,15 @@ body, h1, h2, h3, h4, p, a {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
+  -webkit-box-shadow: 2px 5px 10px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 5px 10px -6px rgba(0,0,0,0.75);
+  box-shadow: 2px 5px 10px -6px rgba(0,0,0,0.75);
 }
 
 .panel-card:hover {
-  -webkit-box-shadow: 2px 5px 20px -6px rgba(0,0,0,0.75);
-  -moz-box-shadow: 2px 5px 20px -6px rgba(0,0,0,0.75);
-  box-shadow: 2px 5px 20px -6px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 2px 5px 12px -6px rgba(0,0,0,0.75);
+  -moz-box-shadow: 2px 5px 12px -6px rgba(0,0,0,0.75);
+  box-shadow: 2px 5px 12px -6px rgba(0,0,0,0.75);
 }
 
 .panel-card h3 {
@@ -127,8 +130,21 @@ body, h1, h2, h3, h4, p, a {
 }
 
 .panel-description {
-  min-height: 120px;
+  color: #666A73;
+  min-height: 160px;
   text-align: justify;
+  padding-top: 0;
+  font-weight: 300;
+  font-size: 14px;
+}
+
+.panel-description h4 {
+  color: black;
+  font-size: 20px;
+}
+
+.img-thumbnail {
+  padding: 0;
 }
 
 .buttonHolder {
@@ -240,6 +256,7 @@ body, h1, h2, h3, h4, p, a {
 	border-bottom-right-radius: 6px;
 	border-top-left-radius: 0px;
 	border-bottom-left-radius: 6px;
+  margin-top: 20px;
 }
 .footer-bs .footer-brand, .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { padding:10px 25px; }
 .footer-bs .footer-nav, .footer-bs .footer-social, .footer-bs .footer-ns { border-color: transparent; }
@@ -297,10 +314,18 @@ select {
   text-align-last:center;
 }
 
-span.badge.badge-info {
+/*span.badge.badge-info {
   font-size: 30px;
+}*/
+
+/*.list-group-item:last-child {
+  font-size: 2em;
+}*/
+
+.learn {
+  min-height: 270px;
 }
 
-.list-group-item:last-child {
-  font-size: 2em;
+.heading-learn {
+  min-height: 69px;
 }

@@ -8,12 +8,7 @@
   <div class="row">
     <div class="col-sm-4" ng-repeat="quiz in vm.quizzes | filter:vm.search">
       <div class="panel panel-default panel-card">
-        <div class="panel-heading">
-            <h3>{{quiz.title}}</h3>
-        </div>
-        <div class="panel-body">
-            <img ng-src="{{quiz.image}}" class="img-thumbnail">
-        </div>
+          <img ng-src="{{quiz.image}}" class="img-thumbnail">
         <div class="panel-body panel-buttons">
           <button class="btn btn-success" ui-sref="home.learn({id: quiz.id})">
             Teach Me! <span class="glyphicon glyphicon-book"></span>
@@ -23,6 +18,7 @@
           </button>
         </div>
         <div class="panel-body panel-description">
+          <h4>{{quiz.title}}</h4>
             {{quiz.description}}
         </div>
         <div class="panel-body">
