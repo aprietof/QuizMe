@@ -5,8 +5,10 @@
 
 <!-- Quiz List -->
 <div class="quizzes" ng-show=vm.indexMode>
+
   <div class="row">
-    <div class="col-sm-4" ng-repeat="quiz in vm.quizzes | filter:vm.search">
+
+    <div class="col-sm-4" ng-repeat="quiz in vm.filteredList | filter:vm.search">
       <div class="panel panel-default panel-card">
           <img ng-src="{{quiz.image}}" class="img-thumbnail">
         <div class="panel-body panel-buttons">
@@ -19,6 +21,7 @@
         </div>
         <div class="panel-body panel-description">
           <h4>{{quiz.title}}</h4>
+          <p><small>Category: {{quiz.category.name}}</small></p>
             {{quiz.description}}
         </div>
         <div class="panel-body">
@@ -28,7 +31,9 @@
         </div>
       </div>
     </div>
+
   </div>
+  
 </div>
 <!-- End Quiz List -->
 

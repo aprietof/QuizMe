@@ -131,11 +131,15 @@ body, h1, h2, h3, h4, p, a {
 
 .panel-description {
   color: #666A73;
-  min-height: 160px;
+  min-height: 180px;
   text-align: justify;
   padding-top: 0;
   font-weight: 300;
   font-size: 14px;
+}
+
+.panel-description small {
+  font-weight: initial;
 }
 
 .panel-description h4 {

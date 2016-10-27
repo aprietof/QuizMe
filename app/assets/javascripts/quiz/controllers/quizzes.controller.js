@@ -2,9 +2,9 @@
 
     'use strict'
 
-    QuizzesController.$inject = ['QuizFactory', 'QuestionFactory']
+    QuizzesController.$inject = ['QuizFactory', 'QuestionFactory','CategoriesFactory','$filter']
 
-    function QuizzesController(QuizFactory, QuestionFactory) {
+    function QuizzesController(QuizFactory, QuestionFactory, CategoriesFactory, $filter) {
 
         var vm = this;
 
@@ -13,6 +13,7 @@
         vm.createMode = false
         vm.editMode = false
         vm.quizzAdded = false
+        vm.category = {}
 
         // vm callable functions
         vm.activate = activate;
@@ -20,6 +21,8 @@
         vm.createQuiz = createQuiz;
         vm.createQuestion = createQuestion;
         vm.editQuiz = editQuiz;
+        vm.getCategories = getCategories;
+        vm.filterByCategory = filterByCategory;
 
         // instatiated Functions
         activate();
@@ -40,7 +43,25 @@
 
         function setQuizzes(data) {
             // Set fetched quizzes objects array into vm.quizzes
-            return vm.quizzes = data
+            vm.quizzes = data
+            return vm.filteredList = vm.quizzes
+        }
+
+        // *** GET CATEGORIES **
+
+        function getCategories() {
+            return fetchCategories()
+                .then(setCategories)
+        }
+
+        function fetchCategories() {
+            // Fetch category array from DB
+            return CategoriesFactory.getCategories()
+        }
+
+        function setCategories(data) {
+            // Set fetched category objects array into vm.quizzes
+            return vm.categories = data
         }
 
         // *** CREATE QUIZ ***
@@ -107,6 +128,21 @@
             }
         }
 
+        // *** FILTER BY CATEGORY ***
+
+        function filterByCategory() {
+            // If category not selected set category name to ''
+            if (vm.category === null) {
+              vm.category = { name: ''}
+            }
+            // Else Filter by category name
+            vm.filteredList = $filter('filter')(vm.quizzes, {
+              category: { name: vm.category.name }
+            });
+        }
+
+        // *** RESET ***
+
         function reset() {
             // Reset all settings to initial state
             vm.indexMode = true
@@ -121,6 +157,7 @@
         function activate() {
             window.scrollTo(0, 0);
             getQuizzes();
+            getCategories();
             reset();
         }
 
