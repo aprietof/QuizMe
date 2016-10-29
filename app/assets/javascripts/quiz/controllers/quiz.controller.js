@@ -2,7 +2,6 @@
 
     'use strict'
 
-
     QuizController.$inject = ['QuizFactory', 'quiz']
 
     function QuizController(QuizFactory, quiz) {
@@ -13,30 +12,44 @@
         // vm Variables
         vm.quiz = quiz.data
         QuizFactory.currentQuizId = vm.quiz.id
-        vm.questions = vm.quiz.questions
         vm.activeQuestionIndex = QuizFactory.activeQuestionIndex; // -> 0
-        vm.activeQuestion = vm.questions[vm.activeQuestionIndex] // -> First
         vm.error = false
         vm.finalize = QuizFactory.finalize // -> false
 
 
         // Callable Methods
-
+        vm.setQuestions = setQuestions;
         vm.questionAnswered = questionAnswered;
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
         vm.switchQuestion = switchQuestion;
         vm.finalizeAnswers = finalizeAnswers;
 
+
         // instatiated Functions
+        setQuestions()
 
         // Scroll to top
         window.scrollTo(0, 0);
 
-        // ################### Defined Methods ################### //
+        // Defined Methods
 
+        // *** Quiz Functionality Functions ***
 
-        // Quiz Functionality Functions
+        function setQuestions() {
+
+          var questionsRequested = parseInt(QuizFactory.questionsNumber);
+
+            // If Number of question has not been set show all questions
+            if (questionsRequested === 0) {
+              vm.questions = vm.quiz.questions
+            } else {
+              // Show only questions # of questions requested
+              vm.questions = vm.quiz.questions.slice(0, questionsRequested)
+            }
+            vm.activeQuestion = vm.questions[vm.activeQuestionIndex] // -> First
+        }
+
         function setActiveQuestion() {
 
             var breakOut = false;

@@ -147,6 +147,11 @@ body, h1, h2, h3, h4, p, a {
   font-size: 20px;
 }
 
+.select-questions {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
 .img-thumbnail {
   padding: 0;
 }

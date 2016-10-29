@@ -10,7 +10,8 @@
             finalize: false,
             numQuestionsAnswered: 0,
             activeQuestionIndex: 0,
-            answeredQuestions: []
+            answeredQuestions: [],
+            questionsNumber: 0
         }
 
         function getQuizzes() {

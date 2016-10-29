@@ -14,6 +14,7 @@
         vm.editMode = false
         vm.quizzAdded = false
         vm.category = {}
+        vm.questionsNumber = []
 
         // vm callable functions
         vm.activate = activate;
@@ -23,6 +24,7 @@
         vm.editQuiz = editQuiz;
         vm.getCategories = getCategories;
         vm.filterByCategory = filterByCategory;
+        vm.setNumQuestions = setNumQuestions;
 
         // instatiated Functions
         activate();
@@ -151,6 +153,7 @@
             vm.quizzAdded = false;
             // Broadcast quiz has been initialize
             QuizFactory.finalize = false;
+            QuizFactory.questionsNumber = 0;
         }
 
         // On load Functions
@@ -159,6 +162,13 @@
             getQuizzes();
             getCategories();
             reset();
+        }
+
+        function setNumQuestions(questionsRequested) {
+          // Set Amount of questions for quiz into QuizFactory attr
+          if (questionsRequested !== undefined) {
+            QuizFactory.questionsNumber = questionsRequested
+          }
         }
 
     }

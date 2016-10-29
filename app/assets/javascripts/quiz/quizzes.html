@@ -7,8 +7,10 @@
 <div class="quizzes" ng-show=vm.indexMode>
 
   <div class="row">
-
+  
     <div class="col-sm-4" ng-repeat="quiz in vm.filteredList | filter:vm.search">
+
+      <!-- Quiz Card -->
       <div class="panel panel-default panel-card">
           <img ng-src="{{quiz.image}}" class="img-thumbnail">
         <div class="panel-body panel-buttons">
@@ -24,16 +26,37 @@
           <p><small>Category: {{quiz.category.name}}</small></p>
             {{quiz.description}}
         </div>
+        <div class="panel-body select-questions">
+          <em><small>*Select how many questions would you like out of  </small>{{quiz.questions.length}}</em>
+        </div>
         <div class="panel-body">
-          <button class="btn btn-info pull-right" ui-sref="home.quiz({id: quiz.id})">
-            Quiz Me! <span class="glyphicon glyphicon-list-alt"></span>
-          </button>
+
+          <div class="col-xs-6">
+            <input type="number"
+                   class="form-control input-box text-center"
+                   ng-value="{{quiz.questions.length}}"
+                   ng-model="vm.questionsNumber[$index]"
+                   min="1"
+                   max="{{quiz.questions.length}}">
+          </div>
+
+          <div class="col-xs-6">
+            <button class="btn btn-info"
+                    ui-sref="home.quiz({id: quiz.id})"
+                    ng-click="vm.setNumQuestions(vm.questionsNumber[$index])">
+              Quiz Me!
+              <span class="glyphicon glyphicon-list-alt"></span>
+            </button>
+          </div>
+
         </div>
       </div>
+      <!-- End Quiz Card -->
+
     </div>
 
   </div>
-  
+
 </div>
 <!-- End Quiz List -->
 
