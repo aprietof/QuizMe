@@ -7,7 +7,7 @@
 <div class="quizzes" ng-show=vm.indexMode>
 
   <div class="row">
-  
+
     <div class="col-sm-4" ng-repeat="quiz in vm.filteredList | filter:vm.search">
 
       <!-- Quiz Card -->
@@ -88,6 +88,22 @@
                           required="required">
                 </div>
 
+                <label>Category:  <em><small class="muted">* Required </small></em></label>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <select class="form-control"
+                              ng-model="vm.newQuiz.category_id"
+                              ng-options="category.id as category.name for category in vm.categories"
+                              name="category"
+                              required>
+                        <option value="">--Please select a Category--</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
                 <label>Image URL:  <em><small class="muted">Optional - add a image URL</small></em></label>
 
                 <div class="form-group">
@@ -111,11 +127,17 @@
                   </textarea>
                 </div>
 
-                <input class="btn btn-success pull-right" type="submit" value="Create Quiz">
+                <input class="btn btn-lg btn-success pull-right" type="submit" value="Create Quiz">
             </form>
           </div>
           <!-- End Quiz Form -->
         </div>
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-sm-3 col-sm-offset-5">
+        <button class="btn btn-lg btn-danger" ng-click="vm.activate()">Take Me Back</button>
+      </div>
     </div>
 </div>
 <!-- End Create Section -->
