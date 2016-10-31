@@ -1,25 +1,32 @@
-# README
+# QuizMe
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a ruby on Rails v5.0 & Angular Js v1.5.4 quiz web application. This App allows users to add, edit and take quizzes.
 
-Things you may want to cover:
+###Uses ActiveRecord Model Associations between:
 
-* Ruby version 5.0
+- Quiz
+- Question
+- Possibilities
+- Category
 
-* System dependencies
+## Usage
 
-* Configuration
-`rake bower:install`
+To use this app, just clone, run `bundle install`, `rake db:migrate`, `rake bower:install`, then run `rails s`.
 
-* Database creation
+## Contributing Bugfixes or Features
 
-* Database initialization
+For submitting something back, be it a patch, some documentation, or new feature requires some level of
+community interactions.
 
-* How to run the test suite
+Committing code is easy:
 
-* Services (job queues, cache servers, search engines, etc.)
+- Fork the this repository
+- Create a local development branch for the bugfix; I recommend naming the branch such that you'll
+  recognize its purpose.
+- Commit a change, and push your local branch to your github fork
+- Send me pull request for your changes to be included
 
-* Deployment instructions
+I apologize in advance for the slow action on pull requests and issues.
 
-* ...
+## License
+QuizMe is licensed under the MIT license. (http://opensource.org/licenses/MIT)
