@@ -2,9 +2,9 @@
 
     'use strict'
 
-    QuizController.$inject = ['QuizFactory', 'quiz']
+    QuizController.$inject = ['QuizFactory', 'quiz', '$timeout']
 
-    function QuizController(QuizFactory, quiz) {
+    function QuizController(QuizFactory, quiz, $timeout) {
 
         var vm = this;
         var numQuestionsAnswered = QuizFactory.numQuestionsAnswered // 0
@@ -19,7 +19,7 @@
 
         // Callable Methods
         vm.setQuestions = setQuestions;
-        vm.questionAnswered = questionAnswered;
+        vm.nextQuestion = nextQuestion;
         vm.setActiveQuestion = setActiveQuestion;
         vm.selectAnswer = selectAnswer;
         vm.switchQuestion = switchQuestion;
@@ -27,27 +27,42 @@
 
 
         // instatiated Functions
+
         setQuestions()
 
-        // Scroll to top
-        window.scrollTo(0, 0);
-
-        // Defined Methods
+        // ############ Defined Methods ############
 
         // *** Quiz Functionality Functions ***
 
         function setQuestions() {
 
-          var questionsRequested = parseInt(QuizFactory.questionsNumber);
+          window.scrollTo(0, 0);
+
+          var questionsRequested = QuizFactory.questionsNumber;
 
             // If Number of question has not been set show all questions
             if (questionsRequested === 0) {
               vm.questions = vm.quiz.questions
             } else {
-              // Show only questions # of questions requested
+              // Show only # of questions requested
               vm.questions = vm.quiz.questions.slice(0, questionsRequested)
             }
             vm.activeQuestion = vm.questions[vm.activeQuestionIndex] // -> First
+        }
+
+        function nextQuestion() {
+
+            var quizLength = vm.questions.length
+
+            // Check if all questions have been answered
+            if (numQuestionsAnswered === quizLength) {
+                // set error to false
+                vm.error = false;
+                // Set quiz finalize state to true
+                vm.finalize = true
+                return
+            }
+            setActiveQuestion()
         }
 
         function setActiveQuestion() {
@@ -63,6 +78,9 @@
                 // if sent back to begining warn user
                 if (vm.activeQuestionIndex === 0) {
                     vm.error = true;
+                    $timeout(function() {
+                        vm.error = false
+                    }, 3000);
                 }
                 // Update Active Question
                 vm.activeQuestion = vm.questions[vm.activeQuestionIndex];
@@ -73,25 +91,11 @@
             }
         }
 
-        function questionAnswered() {
-
-            var quizLength = vm.questions.length
-
-            // Check if all questions have been answered
-            if (numQuestionsAnswered >= quizLength) {
-                for (var i = 0; i < quizLength.length; i++) {
-                    // if there is an unanswered question switch to that question
-                    if (vm.questions[i].answered === null) {
-                        switchQuestion(i);
-                        return;
-                    }
-                }
-                vm.error = false;
-                // Set quiz finalize state to true
-                vm.finalize = true
-                return
-            }
-            setActiveQuestion()
+        function switchQuestion(index) {
+            // Reassigns index question based on clicked icon index
+            vm.activeQuestionIndex = index;
+            // Update Active Question
+            vm.activeQuestion = vm.questions[vm.activeQuestionIndex]
         }
 
         function selectAnswer(index) {
@@ -103,13 +107,6 @@
                 numQuestionsAnswered++
                 vm.activeQuestion.selected = true;
             }
-        }
-
-        function switchQuestion(index) {
-            // Reassigns index question based on clicked icon index
-            vm.activeQuestionIndex = index;
-            // Update Active Question
-            vm.activeQuestion = vm.questions[vm.activeQuestionIndex]
         }
 
         function finalizeAnswers() {

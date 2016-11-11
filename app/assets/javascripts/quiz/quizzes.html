@@ -8,52 +8,45 @@
 
   <div class="row">
 
-    <div class="col-sm-4" ng-repeat="quiz in vm.filteredList | filter:vm.search">
+    <!-- Quiz card -->
+    <div class="col-xs-18 col-sm-6 col-md-4" ng-repeat="quiz in vm.filteredList | filter:vm.search">
+      <div class="thumbnail">
+        <img ng-src="{{quiz.image}}">
+          <div class="caption">
+            <h4>{{quiz.title}}</h4>
+            <p><small>Category: {{quiz.category.name}}</small></p>
+            <p class="description">{{ quiz.description }}</p>
+            <a ui-sref="home.learn({id: quiz.id})" class="btn btn-info btn-sm btn-info" role="button">Teach Me
+            <span class="glyphicon glyphicon-book"></span></a>
+            <a ng-click="vm.editQuiz(quiz.id)" class="btn btn-default btn-sm btn-warning" role="button">Add Question
+              <span class="glyphicon glyphicon-log-in"></span></a>
+        </div>
+        <div class="caption">
+          <p><em><small>*Select how many questions would you like out of  </small>{{quiz.questions.length}}</em></p>
+          <div class="row">
 
-      <!-- Quiz Card -->
-      <div class="panel panel-default panel-card">
-          <img ng-src="{{quiz.image}}" class="img-thumbnail">
-        <div class="panel-body panel-buttons">
-          <button class="btn btn-success" ui-sref="home.learn({id: quiz.id})">
-            Teach Me! <span class="glyphicon glyphicon-book"></span>
-          </button>
-          <button class="btn btn-warning" ng-click="vm.editQuiz(quiz.id)">
-            Add Question <span class="glyphicon glyphicon-log-in"></span>
-          </button>
-        </div>
-        <div class="panel-body panel-description">
-          <h4>{{quiz.title}}</h4>
-          <p><small>Category: {{quiz.category.name}}</small></p>
-            {{quiz.description}}
-        </div>
-        <div class="panel-body select-questions">
-          <em><small>*Select how many questions would you like out of  </small>{{quiz.questions.length}}</em>
-        </div>
-        <div class="panel-body">
+            <div class="col-xs-6">
+              <input type="number"
+                     class="form-control input-box text-center"
+                     ng-value="{{quiz.questions.length}}"
+                     ng-model="vm.questionsNumber[$index]"
+                     min="1"
+                     max="{{quiz.questions.length}}">
+            </div>
 
-          <div class="col-xs-6">
-            <input type="number"
-                   class="form-control input-box text-center"
-                   ng-value="{{quiz.questions.length}}"
-                   ng-model="vm.questionsNumber[$index]"
-                   min="1"
-                   max="{{quiz.questions.length}}">
+            <div class="col-xs-6">
+              <button class="btn btn-success pull-right"
+                      ui-sref="home.quiz({id: quiz.id})"
+                      ng-click="vm.setNumQuestions(vm.questionsNumber[$index])">
+                Quiz Me!
+                <span class="glyphicon glyphicon-list-alt"></span>
+              </button>
+            </div>
+
           </div>
-
-          <div class="col-xs-6">
-            <button class="btn btn-info"
-                    ui-sref="home.quiz({id: quiz.id})"
-                    ng-click="vm.setNumQuestions(vm.questionsNumber[$index])">
-              Quiz Me!
-              <span class="glyphicon glyphicon-list-alt"></span>
-            </button>
-          </div>
-
         </div>
       </div>
-      <!-- End Quiz Card -->
-
-    </div>
+    </div><!-- end quiz card -->
 
   </div>
 
@@ -61,7 +54,7 @@
 <!-- End Quiz List -->
 
 
-<!-- Create ection -->
+<!-- Create section -->
 <div class="create" ng-show="vm.createMode">
 
     <div class="row">

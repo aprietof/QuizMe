@@ -3,7 +3,8 @@
 
       <div class="row" ng-show="vm.messages">
         <div class="alert alert-success">
-          <p>Question created! Please add another question or click 'Finish Quiz'</p>
+          Question created! Please add another question or click 'Finish Quiz'
+          <button class="close" ng-click="vm.error = false">&times</button>
         </div>
       </div>
 
@@ -22,6 +23,7 @@
                             name="question"
                             rows="2"
                             ng-model="vm.newQuestion.text"
+                            minlength="2"
                             required="required"
                             placeholder="Add question here ...">
                   </textarea>

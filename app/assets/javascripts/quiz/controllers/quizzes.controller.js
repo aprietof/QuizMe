@@ -2,9 +2,9 @@
 
     'use strict'
 
-    QuizzesController.$inject = ['QuizFactory', 'QuestionFactory','CategoriesFactory','$filter']
+    QuizzesController.$inject = ['QuizFactory', 'QuestionFactory','CategoriesFactory','$filter', "$timeout"]
 
-    function QuizzesController(QuizFactory, QuestionFactory, CategoriesFactory, $filter) {
+    function QuizzesController(QuizFactory, QuestionFactory, CategoriesFactory, $filter, $timeout) {
 
         var vm = this;
 
@@ -27,9 +27,22 @@
         vm.setNumQuestions = setNumQuestions;
 
         // instatiated Functions
+
         activate();
 
-        //  Defined Methods
+
+        //  #######  Defined Methods ####### //
+
+
+        // *** ON LOAD ***
+
+        function activate() {
+            reset();
+            getQuizzes();
+            getCategories();
+        }
+
+
 
         // *** INDEX PAGE DISPLAY ALL QUIZZES ***
 
@@ -49,6 +62,8 @@
             return vm.filteredList = vm.quizzes
         }
 
+
+
         // *** GET CATEGORIES **
 
         function getCategories() {
@@ -65,6 +80,8 @@
             // Set fetched category objects array into vm.quizzes
             return vm.categories = data
         }
+
+
 
         // *** CREATE QUIZ ***
 
@@ -109,13 +126,15 @@
             vm.messages = true;
             // Clear newQuestion model
             vm.newQuestion = {};
-            // set messages to false after 1 second
-            setTimeout(function() {
+            // set messages to false after 2 second
+            $timeout(function() {
                 vm.messages = false
-            }, 1000);
+            }, 2000);
         }
 
-        // *** ADD QUESTION ***
+
+
+        // *** ADD NEW QUESTION ***
 
         function editQuiz(id) {
             // Set current quiz
@@ -130,6 +149,8 @@
             }
         }
 
+
+
         // *** FILTER BY CATEGORY ***
 
         function filterByCategory() {
@@ -143,10 +164,15 @@
             });
         }
 
+
+
         // *** RESET ***
 
         function reset() {
             // Reset all settings to initial state
+            window.scrollTo(0, 0);
+            vm.newQuestion = {};
+            vm.newQuiz = {};
             vm.indexMode = true
             vm.createMode = false
             vm.editMode = false
@@ -156,13 +182,8 @@
             QuizFactory.questionsNumber = 0;
         }
 
-        // On load Functions
-        function activate() {
-            window.scrollTo(0, 0);
-            getQuizzes();
-            getCategories();
-            reset();
-        }
+
+        // *** SET NUMBER OF QUESTIONS ***
 
         function setNumQuestions(questionsRequested) {
           // Set Amount of questions for quiz into QuizFactory attr

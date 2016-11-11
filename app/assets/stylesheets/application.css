@@ -92,7 +92,7 @@ body, h1, h2, h3, h4, p, a {
   margin: auto;
 }
 
-.panel-card {
+/*.thumbnail {
   -webkit-transition: all 0.2s ease-in-out;
   -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
@@ -101,10 +101,14 @@ body, h1, h2, h3, h4, p, a {
   box-shadow: 2px 5px 10px -6px rgba(0,0,0,0.75);
 }
 
-.panel-card:hover {
+.thumbnail:hover {
   -webkit-box-shadow: 2px 5px 12px -6px rgba(0,0,0,0.75);
   -moz-box-shadow: 2px 5px 12px -6px rgba(0,0,0,0.75);
   box-shadow: 2px 5px 12px -6px rgba(0,0,0,0.75);
+}*/
+
+p.description {
+  min-height: 110px;
 }
 
 .panel-card h3 {
